@@ -1,0 +1,68 @@
+<template>
+    <v-app-bar app color="blue-grey lighten-4" dense>
+
+        <v-tabs v-model="tab" background-color="blue-grey lighten-4">
+            <v-menu
+                v-for="item in items"
+                :key="item.name"
+                open-on-hover
+                offset-y
+                rounded="0"
+            >
+                <template v-slot:activator="{ on, attrs }">
+                    <v-tab
+                        :to="{ name: item.subitems[0].route }"
+                        v-bind="attrs"
+                        v-on="on"
+                    >
+                        <router-link :to="{ name: item.route }">
+                            {{ item.name }}
+                        </router-link>
+                    </v-tab>
+                </template>
+                <v-list v-if="!!item.subitems">
+                    <v-list-item
+                        v-for="subitem in item.subitems"
+                        :key="subitem.name"
+                        link
+                    >                        
+                        <router-link :to="{ name: subitem.route }">
+                            {{ subitem.name }}
+                            <!-- <v-list-item-title v-text="subitem.name" />         -->
+                        </router-link>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+        </v-tabs>
+        <v-spacer />
+
+        <router-link :to="{ name: LOGIN }">Login</router-link>
+    </v-app-bar>
+</template>
+
+<script>
+import { LOGIN } from '@/router/routeNames';
+import items from '@/helpers/headerMenu';
+export default {
+    name: "TheHeader",
+    data() {
+        return {
+            LOGIN,
+            userMenu: ["Profile", "Access management", "Logout"],
+            tab: '',
+            items,
+        };
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+    a {
+        color: black !important;
+        text-decoration: none;
+    }
+
+    .main-logo {
+        max-height: 54px;
+    }
+</style>
