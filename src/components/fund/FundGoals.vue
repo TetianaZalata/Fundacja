@@ -1,5 +1,5 @@
 <template>
     <main>
-        Fundacja cele
+        Fundacja cele        
     </main>
 </template>

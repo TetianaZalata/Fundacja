@@ -1,5 +1,5 @@
 <template>
     <main app>
-        Zlobek contacts
+        ZlobekDocumentation
     </main>
 </template>

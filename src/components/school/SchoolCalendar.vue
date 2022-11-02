@@ -1,5 +1,5 @@
 <template>
     <main>
-        School for students
+        SchoolCalendar
     </main>
 </template>

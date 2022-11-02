@@ -1,5 +1,5 @@
 <template>
     <main app>
-        Preschool gallery
+        PreschoolSchedule
     </main>
 </template>

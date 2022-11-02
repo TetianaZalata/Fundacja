@@ -1,5 +1,5 @@
 <template>
     <main>
-        School contacts
+        SchoolTextbooks
     </main>
 </template>

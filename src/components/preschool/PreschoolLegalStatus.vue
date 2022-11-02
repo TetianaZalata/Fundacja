@@ -1,5 +1,5 @@
 <template>
     <main app>
-        Zlobek about
+        PreschoolLegalStatus
     </main>
 </template>

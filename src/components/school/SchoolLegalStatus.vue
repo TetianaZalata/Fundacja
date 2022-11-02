@@ -1,5 +1,5 @@
 <template>
     <main>
-        Liceum for parents
+        SchoolLegalStatus
     </main>
 </template>

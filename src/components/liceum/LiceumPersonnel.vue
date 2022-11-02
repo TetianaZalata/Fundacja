@@ -1,5 +1,5 @@
 <template>
     <main>
-        Liceum actuality
+        LiceumPersonnel
     </main>
 </template>

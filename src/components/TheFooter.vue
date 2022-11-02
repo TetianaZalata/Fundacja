@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="footer pa-3 justify-space-around" absolute p-3 app>
+    <v-footer class="footer pa-3 justify-space-around deep-purple lighten-4" absolute p-3 app>
         <section class="text-justify subtitle-2">
             <h3>Fundacja Wspierania<br> i Rozwoju Edukacji</h3>
             <div class="caption">
@@ -33,7 +33,7 @@
         </section>
 
         <section class="text-justify subtitle-2">
-            <h3>Przedszkole<br> "Leśna Kraina"</h3>
+            <h3>Przedszkole<br> Leśna Kraina</h3>
             <div class="caption">
                 <v-icon class="mr-5" small>mdi-phone</v-icon>
                 <a href="tel:664 188 793">664 188 793</a>
@@ -49,7 +49,7 @@
         </section>
 
         <section class="text-justify subtitle-2">
-            <h3>Żłobek<br> "Zaczarowany Zakątek"</h3>
+            <h3>Żłobek<br> Zaczarowany Zakątek</h3>
             <div class="caption">
                 <v-icon class="mr-5" small>mdi-phone</v-icon>
                 <a href="tel:698 947 113">698 947 113</a>

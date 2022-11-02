@@ -1,5 +1,5 @@
 <template>
     <main>
-        Liceum contacts
+        LiceumTextbooks
     </main>
 </template>

@@ -2,7 +2,7 @@
     <v-app>
         <TheHeader />
         <v-main class="main">
-            <v-container fluid>
+            <v-container fill-height fluid>
                 <router-view></router-view>
             </v-container>
         </v-main>
@@ -11,8 +11,9 @@
 </template>
 
 <script>
-import TheHeader from "@/components/TheHeader";
+import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import { mapActions } from 'vuex';
 
 export default {
     name: "App",
@@ -20,9 +21,15 @@ export default {
         TheHeader,
         TheFooter,
     },
+    created() {
+        this.getUser();
+    },
     data() {
         return {};
     },
+    methods: {
+        ...mapActions('authUser', ['getUser']),
+    }
 };
 </script>
 

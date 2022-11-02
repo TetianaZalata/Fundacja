@@ -1,5 +1,5 @@
 <template>
     <main>
-        School gallery
+        SchoolPersonnel
     </main>
 </template>

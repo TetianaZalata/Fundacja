@@ -1,41 +1,41 @@
-import PreschoolAbout from '@/components/preschool/PreschoolAbout.vue';
-import PreschoolContacts from '@/components/preschool/PreschoolContacts.vue';
-import PreschoolForParents from '@/components/preschool/PreschoolForParents.vue';
-import PreschoolGallery from '@/components/preschool/PreschoolGallery.vue';
-import PreschoolNews from '@/components/preschool/PreschoolNews.vue';
+import PreschoolLegalStatus from '@/components/preschool/PreschoolLegalStatus.vue';
+import PreschoolSchedule from '@/components/preschool/PreschoolSchedule.vue';
+import PreschoolPersonnel from '@/components/preschool/PreschoolPersonnel.vue';
+import PreschoolDocumentation from '@/components/preschool/PreschoolDocumentation.vue';
+import PreschoolRecruitment from '@/components/preschool/PreschoolRecruitment.vue';
 
 import {
-    PRESCHOOL_WIESCI,
-    PRESCHOOL_ABOUT,
-    PRESCHOOL_DLA_RODZICA,
-    PRESCHOOL_GALERIA,
-    PRESCHOOL_KONTAKT,
+    PRESCHOOL_STATUS_PRAWNY,
+    PRESCHOOL_RYTM_DNIA,
+    PRESCHOOL_KADRA,
+    PRESCHOOL_DOCUMENTY,
+    PRESCHOOL_REKRUTACJA,
 } from '@/router/routeNames';
 
 export default [
     {
-        path: `/${PRESCHOOL_ABOUT}`,
-        name: PRESCHOOL_ABOUT,
-        component: PreschoolAbout,
+        path: `/${PRESCHOOL_STATUS_PRAWNY}`,
+        name: PRESCHOOL_STATUS_PRAWNY,
+        component: PreschoolLegalStatus,
     },
     {
-        path: `/${PRESCHOOL_KONTAKT}`,
-        name: PRESCHOOL_KONTAKT,
-        component: PreschoolContacts,
+        path: `/${PRESCHOOL_RYTM_DNIA}`,
+        name: PRESCHOOL_RYTM_DNIA,
+        component: PreschoolSchedule,
     },
     {
-        path: `/${PRESCHOOL_DLA_RODZICA}`,
-        name: PRESCHOOL_DLA_RODZICA,
-        component: PreschoolForParents,
+        path: `/${PRESCHOOL_KADRA}`,
+        name: PRESCHOOL_KADRA,
+        component: PreschoolPersonnel,
     },
     {
-        path: `/${PRESCHOOL_GALERIA}`,
-        name: PRESCHOOL_GALERIA,
-        component: PreschoolGallery,
+        path: `/${PRESCHOOL_DOCUMENTY}`,
+        name: PRESCHOOL_DOCUMENTY,
+        component: PreschoolDocumentation,
     },
     {
-        path: `/${PRESCHOOL_WIESCI}`,
-        name: PRESCHOOL_WIESCI,
-        component: PreschoolNews,
+        path: `/${PRESCHOOL_REKRUTACJA}`,
+        name: PRESCHOOL_REKRUTACJA,
+        component: PreschoolRecruitment,
     },
 ]

@@ -6,33 +6,35 @@ const FUNDACJA_OBSLUGAPRAWNA = 'fundacja-obsluga-prawna';
 const FUNDACJA_KONTAKT = 'fundacja-kontakt';
 
 // Szkola Podstawowa
-const SZKOLA_PODSTAWOWA_ACTUALNOSCI = 'szkola-podstawowa-aktualnosci';
-const SZKOLA_PODSTAWOWA_DLA_UCZNIA = 'szkola-podstawowa-dla-ucznia';
-const SZKOLA_PODSTAWOWA_DLA_RODZICA = 'szkola-podstawowa-dla-rodzica';
-const SZKOLA_PODSTAWOWA_DOCUMENTY = 'szkola-podstawowa-dokumenty';
-const SZKOLA_PODSTAWOWA_GALERIA = 'szkola-podstawowa-galeria';
-const SZKOLA_PODSTAWOWA_KONTAKT = 'szkola-podstawowa-kontakt';
+const SZKOLA_STATUS_PRAWNY = 'szkola-status-prawny';
+const SZKOLA_KALENDARZ = 'szkola-kalendarz';
+const SZKOLA_PODRECZNIKI = 'szkola-podręczniki';
+const SZKOLA_KADRA = 'szkola-kadra';
+const SZKOLA_DOCUMENTY = 'szkola-dokumenty';
 
 // Liceum Ogolnoksztalcace
-const LICEUM_ACTUALNOSCI = 'liceum-ogolnoksztalcace-aktualnosci';
-const LICEUM_DLA_UCZNIA = 'liceuma-ogolnoksztalcace-dla-ucznia';
-const LICEUM_DLA_RODZICA = 'liceum-ogolnoksztalcace-dla-rodzica';
-const LICEUM_DOCUMENTY = 'liceum-ogolnoksztalcace-dokumenty';
-const LICEUM_GALERIA = 'liceum-ogolnoksztalcace-galeria';
-const LICEUM_KONTAKT = 'liceum-ogolnoksztalcace-kontakt';
+const LICEUM_STATUS_PRAWNY = 'liceum-status-prawny';
+const LICEUM_KALENDARZ = 'liceuma-kalendarz';
+const LICEUM_PODRECZNIKI = 'liceum-podręczniki';
+const LICEUM_KADRA = 'liceum-kadra';
+const LICEUM_DOCUMENTY = 'liceum-dokumenty';
 
 // przedszkole
-const PRESCHOOL_WIESCI = 'przedszkole-wiesci';
-const PRESCHOOL_ABOUT = 'przedszkole-o-nas';
-const PRESCHOOL_DLA_RODZICA = 'przedszkole-dla-rodzica';
-const PRESCHOOL_GALERIA = 'przedszkole-galeria';
-const PRESCHOOL_KONTAKT = 'przedszkole-kontakt';
+const PRESCHOOL_STATUS_PRAWNY = 'przedszkole-status-prawny';
+const PRESCHOOL_RYTM_DNIA = 'przedszkole-rytm-dnia';
+const PRESCHOOL_KADRA = 'przedszkole-kadra';
+const PRESCHOOL_DOCUMENTY = 'przedszkole-dokumenty';
+const PRESCHOOL_REKRUTACJA = 'przedszkole-rekrutacja';
 
 // zlobek
-const ZLOBEK_ABOUT = 'zlobek-o-nas';
-const ZLOBEK_REKRUTACJA = 'zlobek-rekrutacja';
+const ZLOBEK_STATUS_PRAWNY = 'zlobek-status-prawny';
 const ZLOBEK_PLAN_DNIA = 'zlobek-plan-dnia';
-const ZLOBEK_KONTAKT = 'zlobek-kontakt';
+const ZLOBEK_KADRA = 'zlobek-kadra';
+const ZLOBEK_DOCUMENTY = 'zlobek-dokumenty';
+const ZLOBEK_REKRUTACJA = 'zlobek-rekrutacja';
+
+// Wolontariatu
+const KOLO_WOLONTARIATU = 'kolo-wolontariatu'
 
 // login
 const LOGIN = 'login';
@@ -44,30 +46,31 @@ export {
     FUNDACJA_OBSLUGAPRAWNA,
     FUNDACJA_KONTAKT,
 
-    SZKOLA_PODSTAWOWA_ACTUALNOSCI,
-    SZKOLA_PODSTAWOWA_DLA_UCZNIA,
-    SZKOLA_PODSTAWOWA_DLA_RODZICA,
-    SZKOLA_PODSTAWOWA_DOCUMENTY,
-    SZKOLA_PODSTAWOWA_GALERIA,
-    SZKOLA_PODSTAWOWA_KONTAKT,
+    SZKOLA_STATUS_PRAWNY,
+    SZKOLA_KALENDARZ,
+    SZKOLA_PODRECZNIKI,
+    SZKOLA_KADRA,
+    SZKOLA_DOCUMENTY,
 
-    LICEUM_ACTUALNOSCI,
-    LICEUM_DLA_UCZNIA,
-    LICEUM_DLA_RODZICA,
+    LICEUM_STATUS_PRAWNY,
+    LICEUM_KALENDARZ,
+    LICEUM_PODRECZNIKI,
+    LICEUM_KADRA,
     LICEUM_DOCUMENTY,
-    LICEUM_GALERIA,
-    LICEUM_KONTAKT,
 
-    PRESCHOOL_WIESCI,
-    PRESCHOOL_ABOUT,
-    PRESCHOOL_DLA_RODZICA,
-    PRESCHOOL_GALERIA,
-    PRESCHOOL_KONTAKT,
+    PRESCHOOL_STATUS_PRAWNY,
+    PRESCHOOL_RYTM_DNIA,
+    PRESCHOOL_KADRA,
+    PRESCHOOL_DOCUMENTY,
+    PRESCHOOL_REKRUTACJA,
 
-    ZLOBEK_ABOUT,
-    ZLOBEK_REKRUTACJA,
+    ZLOBEK_STATUS_PRAWNY,
     ZLOBEK_PLAN_DNIA,
-    ZLOBEK_KONTAKT,
+    ZLOBEK_KADRA,
+    ZLOBEK_DOCUMENTY,
+    ZLOBEK_REKRUTACJA,
+
+    KOLO_WOLONTARIATU,
 
     LOGIN
 };

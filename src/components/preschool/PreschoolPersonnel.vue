@@ -1,5 +1,5 @@
 <template>
     <main app>
-        Preschool About
+        PreschoolPersonnel
     </main>
 </template>

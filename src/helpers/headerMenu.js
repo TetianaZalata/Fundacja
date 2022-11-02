@@ -5,30 +5,31 @@ import {
     FUNDACJA_OBSLUGAPRAWNA,
     FUNDACJA_KONTAKT,
 
-    SZKOLA_PODSTAWOWA_ACTUALNOSCI,
-    SZKOLA_PODSTAWOWA_DLA_UCZNIA,
-    SZKOLA_PODSTAWOWA_DLA_RODZICA,
-    SZKOLA_PODSTAWOWA_DOCUMENTY,
-    SZKOLA_PODSTAWOWA_GALERIA,
-    SZKOLA_PODSTAWOWA_KONTAKT,
+    SZKOLA_STATUS_PRAWNY,
+    SZKOLA_KALENDARZ,
+    SZKOLA_PODRECZNIKI,
+    SZKOLA_KADRA,
+    SZKOLA_DOCUMENTY,
 
-    LICEUM_ACTUALNOSCI,
-    LICEUM_DLA_UCZNIA,
-    LICEUM_DLA_RODZICA,
+    LICEUM_STATUS_PRAWNY,
+    LICEUM_KALENDARZ,
+    LICEUM_PODRECZNIKI,
+    LICEUM_KADRA,
     LICEUM_DOCUMENTY,
-    LICEUM_GALERIA,
-    LICEUM_KONTAKT,
 
-    PRESCHOOL_WIESCI,
-    PRESCHOOL_ABOUT,
-    PRESCHOOL_DLA_RODZICA,
-    PRESCHOOL_GALERIA,
-    PRESCHOOL_KONTAKT,
+    PRESCHOOL_STATUS_PRAWNY,
+    PRESCHOOL_RYTM_DNIA,
+    PRESCHOOL_KADRA,
+    PRESCHOOL_DOCUMENTY,
+    PRESCHOOL_REKRUTACJA,
 
-    ZLOBEK_ABOUT,
-    ZLOBEK_REKRUTACJA,
+    ZLOBEK_STATUS_PRAWNY,
     ZLOBEK_PLAN_DNIA,
-    ZLOBEK_KONTAKT,
+    ZLOBEK_KADRA,
+    ZLOBEK_DOCUMENTY,
+    ZLOBEK_REKRUTACJA,
+
+    KOLO_WOLONTARIATU
 } from '@/router/routeNames';
 
 export default [
@@ -58,111 +59,132 @@ export default [
         ]
     },
     {
-        name: 'Szkoła Podstawowa',
-        route: SZKOLA_PODSTAWOWA_ACTUALNOSCI,
+        name: 'SZKOŁA',
+        route:     SZKOLA_STATUS_PRAWNY,
         subitems: [
             {
-                name: 'Aktualności',
-                route: SZKOLA_PODSTAWOWA_ACTUALNOSCI,
+                name: 'Status prawny',
+                route: SZKOLA_STATUS_PRAWNY,
             },
             {
-                name: 'Dla ucznia',
-                route: SZKOLA_PODSTAWOWA_DLA_UCZNIA,
+                name: 'Aktualności ',
+                link: '',
+                icon: 'mdi-facebook',
             },
             {
-                name: 'Dla rodzica',
-                route: SZKOLA_PODSTAWOWA_DLA_RODZICA,
+                name: 'Kalendarz',
+                route: SZKOLA_KALENDARZ,
             },
             {
-                name: 'Dokumenty',
-                route: SZKOLA_PODSTAWOWA_DOCUMENTY,
+                name: 'Podręczniki ',
+                route: SZKOLA_PODRECZNIKI,
             },
             {
-                name: 'Galeria',
-                route: SZKOLA_PODSTAWOWA_GALERIA,
+                name: 'Kadra',
+                route: SZKOLA_KADRA,
             },
             {
-                name: 'Kontakt',
-                route: SZKOLA_PODSTAWOWA_KONTAKT,
-            }
+                name: 'Dokumenty ',
+                route: SZKOLA_DOCUMENTY,
+            },
         ],
     },
     {
-        name: 'Liceum Ogólnokształcące',
-        route: LICEUM_ACTUALNOSCI,
+        name: 'Liceum',
+        route: LICEUM_STATUS_PRAWNY,
         subitems: [
             {
-                name: 'Aktualności',
-                route: LICEUM_ACTUALNOSCI,
+                name: 'Status prawny',
+                route: LICEUM_STATUS_PRAWNY,
             },
             {
-                name: 'Dla ucznia',
-                route: LICEUM_DLA_UCZNIA,
+                name: 'Aktualności ',
+                link: '',
+                icon: 'mdi-facebook',
             },
             {
-                name: 'Dla rodzica',
-                route: LICEUM_DLA_RODZICA,
+                name: 'Kalendarz',
+                route: LICEUM_KALENDARZ,
+            },
+            {
+                name: 'Podręczniki',
+                route: LICEUM_PODRECZNIKI,
+            },
+            {
+                name: 'Kadra',
+                route: LICEUM_KADRA,
             },
             {
                 name: 'Dokumenty',
                 route: LICEUM_DOCUMENTY,
             },
-            {
-                name: 'Galeria',
-                route: LICEUM_GALERIA,
-            },
-            {
-                name: 'Kontakt',
-                route: LICEUM_KONTAKT,
-            }
         ],
     },
     {
         name: 'Przedszkole',
-        route: PRESCHOOL_WIESCI,
+        route: PRESCHOOL_STATUS_PRAWNY,
         subitems: [
             {
-                name: 'Wieści z Leśnej Krainy',
-                route: PRESCHOOL_WIESCI,
+                name: 'Status prawny',
+                route: PRESCHOOL_STATUS_PRAWNY,
             },
             {
-                name: 'O przedszkolu',
-                route: PRESCHOOL_ABOUT,
+                name: 'Aktualności ',
+                link: '',
+                icon: 'mdi-facebook',
             },
             {
-                name: 'Dla rodzica',
-                route: PRESCHOOL_DLA_RODZICA,
+                name: 'Rytm dnia',
+                route: PRESCHOOL_RYTM_DNIA,
             },
             {
-                name: 'Galeria',
-                route: PRESCHOOL_GALERIA,
+                name: 'Kadra',
+                route: PRESCHOOL_KADRA,
             },
             {
-                name: 'Kontakt',
-                route: PRESCHOOL_KONTAKT,
+                name: 'Dokumenty',
+                route: PRESCHOOL_DOCUMENTY,
+            },
+            {
+                name: 'Rekrutacja',
+                route: PRESCHOOL_REKRUTACJA,
             },
         ],
     },
     {
         name: 'Żłobek',
-        route: ZLOBEK_ABOUT,
+        route: ZLOBEK_STATUS_PRAWNY,
         subitems: [
             {
-                name: 'O nas',
-                route: ZLOBEK_ABOUT,
+                name: 'Status prawny',
+                route: ZLOBEK_STATUS_PRAWNY,
             },
             {
-                name: 'Rekrutacja',
-                route: ZLOBEK_REKRUTACJA,
+                name: 'Aktualności ',
+                link: '',
+                icon: 'mdi-facebook',
             },
             {
                 name: 'Plan dnia',
                 route: ZLOBEK_PLAN_DNIA,
             },
             {
-                name: 'Kontakt',
-                route: ZLOBEK_KONTAKT,
+                name: 'Kadra',
+                route: ZLOBEK_KADRA,
+            },
+            {
+                name: 'Dokumenty',
+                route: ZLOBEK_DOCUMENTY,
+            },
+            {
+                name: 'Rekrutacja',
+                route: ZLOBEK_REKRUTACJA,
             },
         ],
+    },
+    {
+        name: 'Wolontariatu',
+        route: KOLO_WOLONTARIATU,
+        subitems: null,
     },
 ]

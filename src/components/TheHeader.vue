@@ -1,17 +1,16 @@
 <template>
-    <v-app-bar app color="blue-grey lighten-4" dense>
+    <v-app-bar app color="deep-purple lighten-4" dense>
 
-        <v-tabs v-model="tab" background-color="blue-grey lighten-4">
+        <v-tabs v-model="tab" background-color="deep-purple lighten-4">
             <v-menu
                 v-for="item in items"
                 :key="item.name"
-                open-on-hover
                 offset-y
                 rounded="0"
             >
                 <template v-slot:activator="{ on, attrs }">
                     <v-tab
-                        :to="{ name: item.subitems[0].route }"
+                        :to="{ name: item.route }"
                         v-bind="attrs"
                         v-on="on"
                     >
@@ -28,7 +27,7 @@
                     >                        
                         <router-link :to="{ name: subitem.route }">
                             {{ subitem.name }}
-                            <!-- <v-list-item-title v-text="subitem.name" />         -->
+                            <v-icon v-if="subitem.icon" class="ml-3" color="#4267B2"> {{ subitem.icon }} </v-icon>
                         </router-link>
                     </v-list-item>
                 </v-list>

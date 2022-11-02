@@ -1,5 +1,5 @@
 <template>
     <main>
-        Liceum for students
+        LiceumCalendar
     </main>
 </template>

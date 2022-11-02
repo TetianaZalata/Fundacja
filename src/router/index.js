@@ -7,9 +7,10 @@ import liceum from '@/router/liceum'
 import preschool from '@/router/preschool'
 import zlobek from '@/router/zlobek'
 
+import Volunteering from '@/components/Volunteering.vue';
 import Login from '@/components/Login.vue';
 
-import { LOGIN, FUNDACJA_CELE } from '@/router/routeNames';
+import { KOLO_WOLONTARIATU, LOGIN, FUNDACJA_CELE } from '@/router/routeNames';
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,11 @@ const routes = [
    ...liceum,
    ...preschool,
    ...zlobek,
+    {
+        path: `/${KOLO_WOLONTARIATU}`,
+        name: KOLO_WOLONTARIATU,
+        component: Volunteering,
+    },
     {
         path: `/${LOGIN}`,
         name: LOGIN,

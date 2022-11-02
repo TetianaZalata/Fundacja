@@ -1,48 +1,41 @@
-import SchoolActuality from '@/components/school/SchoolActuality.vue';
-import SchoolContacts from '@/components/school/SchoolContacts.vue';
+import SchoolLegalStatus from '@/components/school/SchoolLegalStatus.vue';
+import SchoolCalendar from '@/components/school/SchoolCalendar.vue';
+import SchoolTextbooks from '@/components/school/SchoolTextbooks.vue';
+import SchoolPersonnel from '@/components/school/SchoolPersonnel.vue';
 import SchoolDocumentation from '@/components/school/SchoolDocumentation.vue';
-import SchoolForParents from '@/components/school/SchoolForParents.vue';
-import SchoolForStudent from '@/components/school/SchoolForStudent.vue';
-import SchoolGallery from '@/components/school/SchoolGallery.vue';
 
 import {
-    SZKOLA_PODSTAWOWA_ACTUALNOSCI,
-    SZKOLA_PODSTAWOWA_DLA_UCZNIA,
-    SZKOLA_PODSTAWOWA_DLA_RODZICA,
-    SZKOLA_PODSTAWOWA_DOCUMENTY,
-    SZKOLA_PODSTAWOWA_GALERIA,
-    SZKOLA_PODSTAWOWA_KONTAKT,
+    SZKOLA_STATUS_PRAWNY,
+    SZKOLA_KALENDARZ,
+    SZKOLA_PODRECZNIKI,
+    SZKOLA_KADRA,
+    SZKOLA_DOCUMENTY,
 } from '@/router/routeNames';
 
 export default [
     {
-        path: `/${SZKOLA_PODSTAWOWA_ACTUALNOSCI}`,
-        name: SZKOLA_PODSTAWOWA_ACTUALNOSCI,
-        component: SchoolActuality,
+        path: `/${SZKOLA_STATUS_PRAWNY}`,
+        name: SZKOLA_STATUS_PRAWNY,
+        component: SchoolLegalStatus,
     },
     {
-        path: `/${SZKOLA_PODSTAWOWA_KONTAKT}`,
-        name: SZKOLA_PODSTAWOWA_KONTAKT,
-        component: SchoolContacts,
+        path: `/${SZKOLA_KALENDARZ}`,
+        name: SZKOLA_KALENDARZ,
+        component: SchoolCalendar,
     },
     {
-        path: `/${SZKOLA_PODSTAWOWA_DOCUMENTY}`,
-        name: SZKOLA_PODSTAWOWA_DOCUMENTY,
+        path: `/${SZKOLA_PODRECZNIKI}`,
+        name: SZKOLA_PODRECZNIKI,
+        component: SchoolTextbooks,
+    },
+    {
+        path: `/${SZKOLA_KADRA}`,
+        name: SZKOLA_KADRA,
+        component: SchoolPersonnel,
+    },
+    {
+        path: `/${SZKOLA_DOCUMENTY}`,
+        name: SZKOLA_DOCUMENTY,
         component: SchoolDocumentation,
-    },
-    {
-        path: `/${SZKOLA_PODSTAWOWA_DLA_RODZICA}`,
-        name: SZKOLA_PODSTAWOWA_DLA_RODZICA,
-        component: SchoolForParents,
-    },
-    {
-        path: `/${SZKOLA_PODSTAWOWA_DLA_UCZNIA}`,
-        name: SZKOLA_PODSTAWOWA_DLA_UCZNIA,
-        component: SchoolForStudent,
-    },
-    {
-        path: `/${SZKOLA_PODSTAWOWA_GALERIA}`,
-        name: SZKOLA_PODSTAWOWA_GALERIA,
-        component: SchoolGallery,
     },
 ]

@@ -1,5 +1,5 @@
 <template>
     <main app>
-        Preschool Contacts
+        ZlobekLegalStatus
     </main>
 </template>
