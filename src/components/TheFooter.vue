@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="footer pa-3 justify-space-around deep-purple lighten-4" absolute p-3 app>
+    <v-footer app class="footer pa-3 justify-space-around deep-purple lighten-4" absolute p-3>
         <section class="text-justify subtitle-2">
             <h3>Fundacja Wspierania<br> i Rozwoju Edukacji</h3>
             <div class="caption">

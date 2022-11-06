@@ -34,8 +34,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;900&display=swap');
+
 html {
     overflow-y: auto;
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius: 3px;
+    }
 }
 
 #app {
@@ -65,5 +77,8 @@ nav {
 
 .container {
     padding: 0;
+    max-width: 1200px;
+    overflow: hidden;
+    height: calc(100% - 150px);
 }
 </style>
