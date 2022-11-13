@@ -3,7 +3,6 @@ import {
     FUNDACJA_STATUT,
     FUNDACJA_SPRAWOZDANIA,
     FUNDACJA_OBSLUGAPRAWNA,
-    FUNDACJA_KONTAKT,
 
     SZKOLA_STATUS_PRAWNY,
     SZKOLA_KALENDARZ,
@@ -52,10 +51,6 @@ export default [
                 name: 'Obsługa prawna',
                 route: FUNDACJA_OBSLUGAPRAWNA,
             },
-            {
-                name: 'Kontakt',
-                route: FUNDACJA_KONTAKT,
-            }
         ]
     },
     {
