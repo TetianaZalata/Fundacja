@@ -11,7 +11,11 @@
                 <div class="preschool-personnel-container-list-item-position">{{ position }}</div>
             </div>
         </div>
-        <img src="@/assets/preschool.png" class="preschool-personnel-container-img"/>
+        <img
+            class="preschool-personnel-container-img"
+            src="@/assets/preschool.png"
+            loading="lazy"
+        />
     </main>
 </template>
 <script>
@@ -110,7 +114,6 @@ export default {
             background-image: url('../../assets/preschool.png');
             width: 100%;
             max-width: 809px;
-            margin-bottom: 150px;
         }
     }
 </style>
