@@ -23,11 +23,22 @@
                     <v-list-item
                         v-for="subitem in item.subitems"
                         :key="subitem.name"
-                        link
-                    >                        
-                        <router-link :to="{ name: subitem.route }">
+                        :link="true"
+                    >
+                        <a
+                            v-if="!!subitem.link"
+                            :href="subitem.link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {{ subitem.name }}
                             <v-icon v-if="subitem.icon" class="ml-3" color="#4267B2"> {{ subitem.icon }} </v-icon>
+                        </a>
+                        <router-link
+                            v-else
+                            :to="{ name: subitem.route }"
+                        >
+                            {{ subitem.name }}
                         </router-link>
                     </v-list-item>
                 </v-list>

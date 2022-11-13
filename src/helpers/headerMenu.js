@@ -68,7 +68,7 @@ export default [
             },
             {
                 name: 'Aktualności ',
-                link: '',
+                link: 'https://www.facebook.com/www.szko',
                 icon: 'mdi-facebook',
             },
             {
@@ -99,7 +99,7 @@ export default [
             },
             {
                 name: 'Aktualności ',
-                link: '',
+                link: 'https://www.facebook.com/www.szko',
                 icon: 'mdi-facebook',
             },
             {
@@ -130,7 +130,7 @@ export default [
             },
             {
                 name: 'Aktualności ',
-                link: '',
+                link: 'https://www.facebook.com/PrzedszkoleLesnaKraina',
                 icon: 'mdi-facebook',
             },
             {
@@ -161,7 +161,7 @@ export default [
             },
             {
                 name: 'Aktualności ',
-                link: '',
+                link: 'https://www.facebook.com/profile.php?id=100076191577542',
                 icon: 'mdi-facebook',
             },
             {
