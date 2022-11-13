@@ -178,7 +178,7 @@ export default [
         ],
     },
     {
-        name: 'Wolontariatu',
+        name: 'KOLO WOLONTARIATU',
         route: KOLO_WOLONTARIATU,
         subitems: null,
     },

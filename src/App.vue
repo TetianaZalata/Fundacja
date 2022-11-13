@@ -75,10 +75,16 @@ nav {
     }
 }
 
-.container {
-    padding: 0;
-    max-width: 1200px;
-    overflow: hidden;
-    height: calc(100% - 150px);
+.v-main__wrap {
+    background-color: #FAFAFA;
+    overflow-y: auto;
+
+    .container {
+        padding: 0;
+        max-width: 1200px;
+        overflow: hidden;
+        height: calc(100% - 150px);
+        margin-bottom: 150px;
+    }
 }
 </style>

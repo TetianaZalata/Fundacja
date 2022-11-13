@@ -1,7 +1,7 @@
 <template>
-    <v-app-bar app color="deep-purple lighten-4" dense>
+    <v-app-bar app color="grey lighten-3" dense>
 
-        <v-tabs v-model="tab" background-color="deep-purple lighten-4">
+        <v-tabs v-model="tab" background-color="grey lighten-3">
             <v-menu
                 v-for="item in items"
                 :key="item.name"
