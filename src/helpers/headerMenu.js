@@ -4,25 +4,21 @@ import {
     FUNDACJA_SPRAWOZDANIA,
     FUNDACJA_OBSLUGAPRAWNA,
 
-    SZKOLA_STATUS_PRAWNY,
     SZKOLA_KALENDARZ,
     SZKOLA_PODRECZNIKI,
     SZKOLA_KADRA,
     SZKOLA_DOCUMENTY,
 
-    LICEUM_STATUS_PRAWNY,
     LICEUM_KALENDARZ,
     LICEUM_PODRECZNIKI,
     LICEUM_KADRA,
     LICEUM_DOCUMENTY,
 
-    PRESCHOOL_STATUS_PRAWNY,
     PRESCHOOL_RYTM_DNIA,
     PRESCHOOL_KADRA,
     PRESCHOOL_DOCUMENTY,
     PRESCHOOL_REKRUTACJA,
 
-    ZLOBEK_STATUS_PRAWNY,
     ZLOBEK_PLAN_DNIA,
     ZLOBEK_KADRA,
     ZLOBEK_DOCUMENTY,
@@ -55,12 +51,8 @@ export default [
     },
     {
         name: 'SZKOŁA',
-        route:     SZKOLA_STATUS_PRAWNY,
+        route: SZKOLA_KALENDARZ,
         subitems: [
-            {
-                name: 'Status prawny',
-                route: SZKOLA_STATUS_PRAWNY,
-            },
             {
                 name: 'Aktualności ',
                 link: 'https://www.facebook.com/www.szko',
@@ -86,12 +78,8 @@ export default [
     },
     {
         name: 'Liceum',
-        route: LICEUM_STATUS_PRAWNY,
+        route: LICEUM_KALENDARZ,
         subitems: [
-            {
-                name: 'Status prawny',
-                route: LICEUM_STATUS_PRAWNY,
-            },
             {
                 name: 'Aktualności ',
                 link: 'https://www.facebook.com/www.szko',
@@ -117,12 +105,8 @@ export default [
     },
     {
         name: 'Przedszkole',
-        route: PRESCHOOL_STATUS_PRAWNY,
+        route: PRESCHOOL_RYTM_DNIA,
         subitems: [
-            {
-                name: 'Status prawny',
-                route: PRESCHOOL_STATUS_PRAWNY,
-            },
             {
                 name: 'Aktualności ',
                 link: 'https://www.facebook.com/PrzedszkoleLesnaKraina',
@@ -148,12 +132,8 @@ export default [
     },
     {
         name: 'Żłobek',
-        route: ZLOBEK_STATUS_PRAWNY,
+        route: ZLOBEK_PLAN_DNIA,
         subitems: [
-            {
-                name: 'Status prawny',
-                route: ZLOBEK_STATUS_PRAWNY,
-            },
             {
                 name: 'Aktualności ',
                 link: 'https://www.facebook.com/profile.php?id=100076191577542',
