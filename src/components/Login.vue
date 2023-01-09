@@ -1,7 +1,7 @@
 <template>
     <v-form class="login" app>
-        <v-row dense>
-            <v-col>
+        <v-row dense style="width: 100%">
+            <v-col class="d-flex justify-center">
                 <v-text-field
                     v-model="email"
                     class="field"
@@ -9,11 +9,12 @@
                     type="email"
                     :rules="rules"
                     hide-details="auto"
+                    :disabled="isAuth"
                 />
             </v-col>
         </v-row>
-        <v-row dense>
-            <v-col>
+        <v-row dense style="width: 100%">
+            <v-col class="d-flex justify-center">
                 <v-text-field
                     v-model="password"
                     class="field"
@@ -21,60 +22,102 @@
                     type="password"
                     :rules="rules"
                     hide-details="auto"
+                    :disabled="isAuth"
                 />
             </v-col>
         </v-row>
-        <v-row>
+        <v-row v-if="!isAuth">
             <v-col>
                 <v-btn
-                    v-if="!auth.currentUser"
-                    @click="login"
+                    tile
+                    @click="logIn"
                 >
                     login
                 </v-btn>
+            </v-col>
+        </v-row>
+        <v-row v-if="isAuth">
+            <v-col>
                 <v-btn
-                    v-else
-                    @click="logout">
+                    tile
+                    @click="logOut"
+                >
                     logout
                 </v-btn>
             </v-col>
         </v-row>
+        <v-alert
+            class="notification"
+            :value="alert"
+            :type="!!messages.error ? 'error' : 'success'"
+            transition="scale-transition"
+        >
+            {{ messages.error ? messages.error : messages.success }}
+        </v-alert>
     </v-form>
 </template>
 
 <script>
-
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from '@/firebase/firebase';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-    data: () => ({
-        auth,
-        email: '',
-        password: '',
-        rules: [
-            value => !!value || 'Required',
-            value => value.length > 3 || 'Must be more then 3',
-        ],
-    }),
-    async mounted() {
-        console.log(auth.currentUser)
+    data() {
+        return {
+            email: '',
+            password: '',
+            rules: [
+                value => !!value || 'Required',
+                value => value.length > 3 || 'Must be more then 3',
+            ],
+            alert: false,
+            messages: {
+                error: '',
+                success: '',
+            },
+        }
+    },
+    computed: {
+        ...mapGetters('authUser', ['isAuth']),
     },
     methods: {
-        login() {
-            signInWithEmailAndPassword(this.auth, this.email, this.password)
-            .then((res) => {
-                console.log(res)
+        ...mapActions('authUser', ['login', 'logout']),
+        logIn() {
+            this.login({email: this.email, password: this.password})
+            .then(() => {
+                this.alert = true;
+                this.messages.success = 'You are logged in';
+            }).catch((error) => {
+                this.alert = true;
+                if(error.code === 'auth/invalid-email') {
+                    this.messages.error = 'Invalid email';
+                }
+                if(error.code === 'auth/wrong-password') {
+                    this.messages.error = 'Wrong password';
+                }
+            }).finally(() => {
+                setTimeout(() => {
+                    this.alert = false;
+                    this.messages.success = '';
+                    this.messages.error = '';
+                }, 3000)
             })
         },
-        logout() {
-            signOut(this.auth)
+        logOut() {
+            this.logout()
             .then(() => {
                 this.email = '';
                 this.password = '';
+                this.alert = true;
+                this.messages.success = 'You are logged out';
             })
             .catch((e) => {
-                console.log(e)
+                console.log(e);
+            }).finally(() => {
+                setTimeout(() => {
+                    this.alert = false;
+                    this.messages.success = '';
+                    this.messages.error = '';
+                }, 3000)
             })
         }
     }

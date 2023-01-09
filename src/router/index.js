@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+// import { auth } from '@/firebase/firebase';
 
 import fund from '@/router/fund'
 import school from '@/router/school'
@@ -35,6 +36,11 @@ const routes = [
         path: `/${LOGIN}`,
         name: LOGIN,
         component: Login,
+        // redirect: () => {
+        //     if(auth) {
+        //         return FUNDACJA_CELE
+        //     }
+        // },
     },
    
 ];

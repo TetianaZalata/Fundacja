@@ -46,23 +46,71 @@
         </v-tabs>
         <v-spacer />
 
-        <router-link :to="{ name: LOGIN }">Login</router-link>
+        <router-link
+            v-if="!isAuth"
+            :to="{ name: LOGIN }"
+        >Login</router-link>
+
+        <v-btn
+            tile
+            v-if="isAuth"
+            @click="logOut"
+        >Logout</v-btn>
+
+        <v-alert
+            class="notification"
+            :value="alert"
+            :type="!!messages.error ? 'error' : 'success'"
+            transition="scale-transition"
+        >
+            {{ messages.error ? messages.error : messages.success }}
+        </v-alert>
+
     </v-app-bar>
 </template>
 
 <script>
-import { LOGIN } from '@/router/routeNames';
-import items from '@/helpers/headerMenu';
-export default {
-    name: "TheHeader",
-    data() {
-        return {
-            LOGIN,
-            userMenu: ["Profile", "Access management", "Logout"],
-            tab: '',
-            items,
-        };
-    },
+    import { LOGIN } from '@/router/routeNames';
+    import items from '@/helpers/headerMenu';
+    import { mapGetters, mapActions } from 'vuex';
+
+    export default {
+        name: "TheHeader",
+        data() {
+            return {
+                LOGIN,
+                userMenu: ["Profile", "Access management", "Logout"],
+                tab: '',
+                items,
+                alert: false,
+                messages: {
+                    error: '',
+                    success: '',
+                },
+            };
+        },
+        computed: {
+            ...mapGetters('authUser', ['isAuth'])
+        },
+        methods: {
+            ...mapActions('authUser', ['logout']),
+            logOut() {
+            this.logout()
+            .then(() => {
+                this.alert = true;
+                this.messages.success = 'You are logged out';
+            })
+            .catch((e) => {
+                console.log(e);
+            }).finally(() => {
+                setTimeout(() => {
+                    // this.alert = false;
+                    this.messages.success = '';
+                    this.messages.error = '';
+                }, 3000)
+            })
+        }
+        },
 };
 </script>
 

@@ -56,6 +56,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    position: relative;
 
     .main {
         padding-bottom: 0 !important;
@@ -85,6 +86,15 @@ nav {
         overflow: hidden;
         height: calc(100% - 150px);
         margin-bottom: 150px;
+    }
+
+    .notification {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 10000;
+        width: 400px;
+        text-align: start;
     }
 }
 </style>
