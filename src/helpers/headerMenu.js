@@ -40,7 +40,8 @@ export default [
                 route: FUNDACJA_STATUT,
             },
             {
-                name: 'Sprawozdania',
+                name: 'Sprawozdańia',
+                link: 'https://sprawozdaniaopp.niw.gov.pl/',
                 route: FUNDACJA_SPRAWOZDANIA,
             },
             {
@@ -158,7 +159,7 @@ export default [
         ],
     },
     {
-        name: 'KOLO WOLONTARIATU',
+        name: 'KOŁO WOLONTARIATU',
         route: KOLO_WOLONTARIATU,
         subitems: null,
     },

@@ -2,7 +2,10 @@
     <main class="personnel-container">
         <div class="personnel-container-list">
             <h1 class="personnel-container-list-title">{{ title }}</h1>
-            <div class="d-flex justify-end mb-2 mr-1">
+            <div
+                v-if="isAuth"
+                class="d-flex justify-end mb-2 mr-1"
+            >
                 <v-btn tile @click="openModal(null, null, 'Create')">
                     add employee
                 </v-btn>
@@ -69,29 +72,33 @@
                     </v-card-text>
                     <v-card-text>
                         <v-text-field
+                            ref="fullName"
                             v-model="user.fullName"
                             class="field"
                             label="Full name"
                             type="text"
                             :rules="rules"
+                            :error-messages="errorMessages"
                             hide-details="auto"
                             :disabled="isDelete"
+                            required
                         />
                         <v-text-field
                             v-model="user.degree"
                             class="field"
                             label="Degree"
                             type="text"
-                            :rules="rules"
                             hide-details="auto"
                             :disabled="isDelete"
                         />
                         <v-text-field
+                            ref="position"
                             v-model="user.position"
                             class="field"
                             label="Position"
                             type="text"
                             :rules="rules"
+                            :error-messages="errorMessages"
                             hide-details="auto"
                             :disabled="isDelete"
                         />
@@ -121,7 +128,6 @@
 import { mapGetters } from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 import { getDatabase, ref, push, set, update, remove } from "firebase/database";
-// import { getDatabase, ref, push, set, doc, setDoc } from "firebase/database";
 
 export default {
     name: "Personnel",
@@ -150,9 +156,11 @@ export default {
             modalTitle: '',
             action: '',
             rules: [
-            value => !!value || 'Required',
-            value => value.length > 3 || 'Must be more then 3',
+                value => !!value || 'Required',
+                value => value.length > 3 || 'Must be more then 3',
             ],
+            errorMessages: '',
+            error: false,
             dialog: false,
         }
     },
@@ -188,6 +196,19 @@ export default {
             this.action = action.toLowerCase();
         },
         addNewEmployee() {
+            this.error = false;
+            if(!this.$refs.fullName.value) {
+                this.$refs.fullName.validate(true);
+                this.error = true;
+            }
+            if(!this.$refs.position.value) {
+                this.$refs.position.validate(true);
+                this.error = true;
+            }
+            if(this.error) {
+                return;
+            }
+
             const db = getDatabase();
             const list = ref(db, this.personnelType);
             const newListItem = push(list);

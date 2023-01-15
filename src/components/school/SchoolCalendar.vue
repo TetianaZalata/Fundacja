@@ -108,7 +108,6 @@ export default {
 
         p {
             text-align: start;
-            // background-color:  ;
         }
     }
 </style>

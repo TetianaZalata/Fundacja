@@ -76,6 +76,13 @@ export default {
             },
         }
     },
+    watch: {
+        isAuth(newVal) {
+            if(newVal) {
+                this.clearAll();
+            }
+        },
+    },
     computed: {
         ...mapGetters('authUser', ['isAuth']),
     },
@@ -97,16 +104,12 @@ export default {
             }).finally(() => {
                 setTimeout(() => {
                     this.alert = false;
-                    this.messages.success = '';
-                    this.messages.error = '';
                 }, 3000)
             })
         },
         logOut() {
             this.logout()
             .then(() => {
-                this.email = '';
-                this.password = '';
                 this.alert = true;
                 this.messages.success = 'You are logged out';
             })
@@ -115,10 +118,14 @@ export default {
             }).finally(() => {
                 setTimeout(() => {
                     this.alert = false;
-                    this.messages.success = '';
-                    this.messages.error = '';
                 }, 3000)
             })
+        },
+        clearAll() {
+            this.email = '';
+            this.password = '';
+            this.messages.success = '';
+            this.messages.error = '';
         }
     }
 }

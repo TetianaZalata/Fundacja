@@ -61,6 +61,15 @@ html {
     .main {
         padding-bottom: 0 !important;
     }
+
+    .notification {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 10000;
+        width: 400px;
+        text-align: start;
+    }
 }
 
 nav {
@@ -86,15 +95,6 @@ nav {
         overflow: hidden;
         height: calc(100% - 150px);
         margin-bottom: 150px;
-    }
-
-    .notification {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 10000;
-        width: 400px;
-        text-align: start;
     }
 }
 </style>

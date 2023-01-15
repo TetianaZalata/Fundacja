@@ -4,9 +4,11 @@
         <v-tabs v-model="tab" background-color="grey lighten-3">
             <v-menu
                 v-for="item in items"
+                class="top-menu"
                 :key="item.name"
                 offset-y
                 rounded="0"
+                open-on-hover
             >
                 <template v-slot:activator="{ on, attrs }">
                     <v-tab
@@ -56,16 +58,6 @@
             v-if="isAuth"
             @click="logOut"
         >Logout</v-btn>
-
-        <v-alert
-            class="notification"
-            :value="alert"
-            :type="!!messages.error ? 'error' : 'success'"
-            transition="scale-transition"
-        >
-            {{ messages.error ? messages.error : messages.success }}
-        </v-alert>
-
     </v-app-bar>
 </template>
 
@@ -82,11 +74,6 @@
                 userMenu: ["Profile", "Access management", "Logout"],
                 tab: '',
                 items,
-                alert: false,
-                messages: {
-                    error: '',
-                    success: '',
-                },
             };
         },
         computed: {
@@ -96,18 +83,8 @@
             ...mapActions('authUser', ['logout']),
             logOut() {
             this.logout()
-            .then(() => {
-                this.alert = true;
-                this.messages.success = 'You are logged out';
-            })
             .catch((e) => {
                 console.log(e);
-            }).finally(() => {
-                setTimeout(() => {
-                    // this.alert = false;
-                    this.messages.success = '';
-                    this.messages.error = '';
-                }, 3000)
             })
         }
         },
