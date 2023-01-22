@@ -35,6 +35,7 @@
                         >
                             {{ subitem.name }}
                             <v-icon v-if="subitem.icon" class="ml-3" color="#4267B2"> {{ subitem.icon }} </v-icon>
+                            <img v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
                         </a>
                         <router-link
                             v-else
@@ -100,4 +101,5 @@
     .main-logo {
         max-height: 54px;
     }
+
 </style>

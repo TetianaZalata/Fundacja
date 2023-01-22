@@ -1,8 +1,6 @@
 import {
     FUNDACJA_CELE,
     FUNDACJA_STATUT,
-    FUNDACJA_SPRAWOZDANIA,
-    FUNDACJA_OBSLUGAPRAWNA,
 
     SZKOLA_KALENDARZ,
     SZKOLA_PODRECZNIKI,
@@ -42,11 +40,12 @@ export default [
             {
                 name: 'Sprawozdańia',
                 link: 'https://sprawozdaniaopp.niw.gov.pl/',
-                route: FUNDACJA_SPRAWOZDANIA,
+                iconFile: 'NIW.png',
             },
             {
                 name: 'Obsługa prawna',
-                route: FUNDACJA_OBSLUGAPRAWNA,
+                link: 'https://auxilia-oswiata.pl/',
+                iconFile: 'Auxilia.png',
             },
         ]
     },
