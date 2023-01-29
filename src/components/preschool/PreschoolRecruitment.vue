@@ -1,5 +1,12 @@
 <template>
-    <main app>
-        PreschoolRecruitment
-    </main>
+    <ComingSoon />
 </template>
+<script>
+import ComingSoon from "@/components/shared/ComingSoon.vue";
+export default {
+    name: 'PreschoolRecruitment',
+    components: {
+        ComingSoon,
+    }
+}
+</script>

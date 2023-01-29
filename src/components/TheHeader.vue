@@ -1,52 +1,53 @@
 <template>
     <v-app-bar app color="grey lighten-3" dense>
-
-        <v-tabs v-model="tab" background-color="grey lighten-3">
-            <v-menu
-                v-for="item in items"
-                class="top-menu"
-                :key="item.name"
-                offset-y
-                rounded="0"
-                open-on-hover
-            >
-                <template v-slot:activator="{ on, attrs }">
-                    <v-tab
-                        :to="{ name: item.route }"
-                        v-bind="attrs"
-                        v-on="on"
+        <v-menu
+            v-for="(item, index) in items"
+            class="top-menu"
+            :key="`${item.name}-${index}`"
+            offset-y
+            rounded="0"
+            open-on-hover
+        >
+            <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    plain
+                    tile
+                    v-bind="attrs"
+                    v-on="on"
+                    :class="{ 'selected-item' : currentRouteName === item.item }"
+                >
+                    <router-link :to="{ name: item.route }">
+                        {{ item.alias }}
+                    </router-link>
+                </v-btn>
+            </template>
+            <v-list v-if="!!item.subitems">
+                <v-list-item
+                    v-for="subitem in item.subitems"
+                    :key="subitem.alias"
+                    :link="true"
+                    :class="{ 'selected-item' : $route.name === subitem.route }"
+                >
+                    <a
+                        v-if="!!subitem.link"
+                        :href="subitem.link"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <router-link :to="{ name: item.route }">
-                            {{ item.name }}
-                        </router-link>
-                    </v-tab>
-                </template>
-                <v-list v-if="!!item.subitems">
-                    <v-list-item
-                        v-for="subitem in item.subitems"
-                        :key="subitem.name"
-                        :link="true"
+                        {{ subitem.alias }}
+                        <svg-icon v-if="subitem.icon" class="ml-3" :style="{color: subitem.iconColor}" type="mdi" :path="subitem.icon"></svg-icon>
+                        <img v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
+                    </a>
+                    <router-link
+                        v-else
+                        :to="{ name: subitem.route }"
                     >
-                        <a
-                            v-if="!!subitem.link"
-                            :href="subitem.link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {{ subitem.name }}
-                            <v-icon v-if="subitem.icon" class="ml-3" color="#4267B2"> {{ subitem.icon }} </v-icon>
-                            <img v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
-                        </a>
-                        <router-link
-                            v-else
-                            :to="{ name: subitem.route }"
-                        >
-                            {{ subitem.name }}
-                        </router-link>
-                    </v-list-item>
-                </v-list>
-            </v-menu>
-        </v-tabs>
+                        {{ subitem.alias }}
+                    </router-link>
+                </v-list-item>
+            </v-list>
+        </v-menu>
+        
         <v-spacer />
 
         <router-link
@@ -66,9 +67,13 @@
     import { LOGIN } from '@/router/routeNames';
     import items from '@/helpers/headerMenu';
     import { mapGetters, mapActions } from 'vuex';
+    import SvgIcon from '@jamescoyle/vue-icon';
 
     export default {
         name: "TheHeader",
+        components :{
+            SvgIcon,
+        },
         data() {
             return {
                 LOGIN,
@@ -78,7 +83,10 @@
             };
         },
         computed: {
-            ...mapGetters('authUser', ['isAuth'])
+            ...mapGetters('authUser', ['isAuth']),
+            currentRouteName() {
+                return this.$route.name.split('-')[0];
+            },
         },
         methods: {
             ...mapActions('authUser', ['logout']),
@@ -102,4 +110,7 @@
         max-height: 54px;
     }
 
+    .selected-item {
+        background-color: #CFD8DC;
+    }
 </style>

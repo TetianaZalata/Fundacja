@@ -1,5 +1,12 @@
 <template>
-    <main app>
-        ZlobekDocumentation
-    </main>
+    <ComingSoon />
 </template>
+<script>
+import ComingSoon from "@/components/shared/ComingSoon.vue";
+export default {
+    name: 'NaughtyDocumentation',
+    components: {
+        ComingSoon,
+    }
+}
+</script>

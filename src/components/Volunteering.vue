@@ -1,16 +1,13 @@
 <template>
-    <main app>
-        VOLUNTEERING
-    </main>
+    <ComingSoon />
 </template>
 
 <script>
-
+import ComingSoon from "@/components/shared/ComingSoon.vue";
 export default {
-    name: 'Volunteering'
+    name: 'Volunteering',
+    components: {
+        ComingSoon,
+    }
 }
 </script>
-
-<style lang="scss" scoped>
-    
-</style>

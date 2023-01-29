@@ -36,13 +36,13 @@
                                     icon
                                     @click="openModal(item, key, 'Edit')"
                                 >
-                                    <v-icon color="blue darken-4">mdi-pencil-outline</v-icon>
+                                    <svg-icon :style="{color: '#0D47A1'}" type="mdi" :path="mdiPencilOutline"></svg-icon>
                                 </v-btn>
                                 <v-btn
                                     icon
                                     @click="openModal(item, key, 'Delete')"
                                 >
-                                    <v-icon color="red lighten-1">mdi-trash-can-outline</v-icon>
+                                    <svg-icon :style="{color: '#EF5350'}" type="mdi" :path="mdiTrashCanOutline"></svg-icon>
                                 </v-btn>
                             </td>
                         </tr>
@@ -128,9 +128,15 @@
 import { mapGetters } from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 import { getDatabase, ref, push, set, update, remove } from "firebase/database";
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiPencilOutline, mdiTrashCanOutline } from "@mdi/js";
+
 
 export default {
     name: "Personnel",
+    components :{
+        SvgIcon,
+    },
     props: {
         personnelList: {
             required: true,
@@ -162,6 +168,8 @@ export default {
             errorMessages: '',
             error: false,
             dialog: false,
+            mdiPencilOutline,
+            mdiTrashCanOutline,
         }
     },
     computed: {

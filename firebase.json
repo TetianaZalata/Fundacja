@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/fundacja-educacji",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

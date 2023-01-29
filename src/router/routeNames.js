@@ -1,40 +1,40 @@
 // fundacja
-const FUNDACJA_CELE = 'fundacja-cele';
-const FUNDACJA_STATUT = 'fundacja-statut';
-const FUNDACJA_SPRAWOZDANIA = 'fundacja-sprawozdania';
-const FUNDACJA_OBSLUGAPRAWNA = 'fundacja-obsluga-prawna';
-const FUNDACJA_KONTAKT = 'fundacja-kontakt';
+const FUNDACJA_CELE = 'fund-goals';
+const FUNDACJA_STATUT = 'fund-statute';
+const FUNDACJA_SPRAWOZDANIA = 'fund-reports';
+const FUNDACJA_OBSLUGAPRAWNA = 'fund-legal-support';
+const FUNDACJA_KONTAKT = 'fund-contact';
 
 // Szkola Podstawowa
-const SZKOLA_STATUS_PRAWNY = 'szkola-status-prawny';
-const SZKOLA_KALENDARZ = 'szkola-kalendarz';
-const SZKOLA_PODRECZNIKI = 'szkola-podręczniki';
-const SZKOLA_KADRA = 'szkola-kadra';
-const SZKOLA_DOCUMENTY = 'szkola-dokumenty';
+const SZKOLA_STATUS_PRAWNY = 'school-legal-status';
+const SZKOLA_KALENDARZ = 'school-calendar';
+const SZKOLA_PODRECZNIKI = 'school-textbooks';
+const SZKOLA_KADRA = 'school-personnel';
+const SZKOLA_DOCUMENTY = 'school-documentation';
 
 // Liceum Ogolnoksztalcace
-const LICEUM_STATUS_PRAWNY = 'liceum-status-prawny';
-const LICEUM_KALENDARZ = 'liceuma-kalendarz';
-const LICEUM_PODRECZNIKI = 'liceum-podręczniki';
-const LICEUM_KADRA = 'liceum-kadra';
-const LICEUM_DOCUMENTY = 'liceum-dokumenty';
+const LICEUM_STATUS_PRAWNY = 'hschool-legal-status';
+const LICEUM_KALENDARZ = 'hschool-calendar';
+const LICEUM_PODRECZNIKI = 'hschool-textbooks';
+const LICEUM_KADRA = 'hschool-personnel';
+const LICEUM_DOCUMENTY = 'hschool-documentation';
 
 // przedszkole
-const PRESCHOOL_STATUS_PRAWNY = 'przedszkole-status-prawny';
-const PRESCHOOL_RYTM_DNIA = 'przedszkole-rytm-dnia';
-const PRESCHOOL_KADRA = 'przedszkole-kadra';
-const PRESCHOOL_DOCUMENTY = 'przedszkole-dokumenty';
-const PRESCHOOL_REKRUTACJA = 'przedszkole-rekrutacja';
+const PRESCHOOL_STATUS_PRAWNY = 'kindergarten-legal-status';
+const PRESCHOOL_RYTM_DNIA = 'kindergarten-schedule';
+const PRESCHOOL_KADRA = 'kindergarten-personnel';
+const PRESCHOOL_DOCUMENTY = 'kindergarten-documentation';
+const PRESCHOOL_REKRUTACJA = 'kindergarten-recruitment';
 
 // zlobek
-const ZLOBEK_STATUS_PRAWNY = 'zlobek-status-prawny';
-const ZLOBEK_PLAN_DNIA = 'zlobek-plan-dnia';
-const ZLOBEK_KADRA = 'zlobek-kadra';
-const ZLOBEK_DOCUMENTY = 'zlobek-dokumenty';
-const ZLOBEK_REKRUTACJA = 'zlobek-rekrutacja';
+const ZLOBEK_STATUS_PRAWNY = 'naughty-legal-status';
+const ZLOBEK_PLAN_DNIA = 'naughty-day-plan';
+const ZLOBEK_KADRA = 'naughty-personnel';
+const ZLOBEK_DOCUMENTY = 'naughty-documentation';
+const ZLOBEK_REKRUTACJA = 'naughty-recruitment';
 
 // Wolontariatu
-const KOLO_WOLONTARIATU = 'kolo-wolontariatu'
+const KOLO_WOLONTARIATU = 'volunteering'
 
 // login
 const LOGIN = 'login';

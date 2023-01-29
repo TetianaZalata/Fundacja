@@ -9,10 +9,8 @@
                 x-small
                 :disabled="page === 1"
                 @click="prev"
-            >
-                <v-icon>
-                    mdi-skip-previous
-                </v-icon>
+            >                
+                <svg-icon type="mdi" :path="mdiSkipPrevious"></svg-icon>
             </v-btn>
             <div class="page-counter">
                 {{ `${page} / ${pages}` }}
@@ -26,9 +24,7 @@
                 :disabled="page === pages"
                 @click="next"
             >
-                <v-icon>
-                    mdi-skip-next
-                </v-icon>
+                <svg-icon type="mdi" :path="mdiSkipNext"></svg-icon>
             </v-btn>
             <label
                 class="to-page-input-label"
@@ -62,9 +58,7 @@
                 :disabled="page === 1"
                 @click="prev"
             >
-                <v-icon>
-                    mdi-skip-previous
-                </v-icon>
+                <svg-icon type="mdi" :path="mdiSkipPrevious"></svg-icon>
             </v-btn>
             <div class="page-counter">
                 {{ `${page} / ${pages}` }}
@@ -78,9 +72,7 @@
                 :disabled="page === pages"
                 @click="next"
             >
-                <v-icon>
-                    mdi-skip-next
-                </v-icon>
+                <svg-icon type="mdi" :path="mdiSkipNext"></svg-icon>
             </v-btn>
             <label
                 class="to-page-input-label"
@@ -102,7 +94,8 @@
 </template>
 
 <script>
-    
+    import SvgIcon from '@jamescoyle/vue-icon';
+    import { mdiSkipPrevious, mdiSkipNext } from "@mdi/js";
     import pdf from 'vue-pdf'
     export default {
         name: 'PdfPreviewer',
@@ -114,12 +107,15 @@
         },
         components: {
             pdf,
+            SvgIcon,
         },
 
         data() {
             return {
                 page: 1,
                 pages: 0,
+                mdiSkipPrevious,
+                mdiSkipNext,
             }
         },
         created() {
