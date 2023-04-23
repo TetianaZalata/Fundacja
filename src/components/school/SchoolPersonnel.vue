@@ -16,7 +16,7 @@
         },
         data() {
             return {
-                title: 'KADRA SKOŁA',
+                title: 'KADRA SKOŁA PODSTAWOWA',
                 personnelList: [],
                 personnelType: 'school-personnel'
             }

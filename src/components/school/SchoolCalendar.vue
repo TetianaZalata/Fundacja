@@ -94,10 +94,10 @@ export default {
         font-family: 'Source Sans Pro', sans-serif;
 
         .title {
-            font-size: 50px !important;
+            font-size: 44px !important;
             font-weight: 900;
             text-align: start;
-            line-height: 50px;
+            line-height: 44px;
             margin-bottom: 40px;
             font-family: 'Source Sans Pro', sans-serif !important;
         }

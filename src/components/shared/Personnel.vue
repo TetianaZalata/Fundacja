@@ -15,7 +15,7 @@
                     <thead>
                         <tr class="blue-grey lighten-4">
                             <th class="text-left">Imię i Nazwisko</th>
-                            <th class="text-left">Stopień</th>
+                            <!-- <th class="text-left">Stopień</th> -->
                             <th class="text-left">Pozycja</th>
                             <th v-if="isAuth">Działania</th>
                         </tr>
@@ -26,7 +26,7 @@
                             :key="key"
                         >
                             <td class="text-left">{{ item.name }}</td>
-                            <td class="text-left">{{ item.degree }}</td>
+                            <!-- <td class="text-left">{{ item.degree }}</td> -->
                             <td class="text-left">{{ item.position }}</td>
                             <td
                                 v-if="isAuth"
@@ -83,14 +83,14 @@
                             :disabled="isDelete"
                             required
                         />
-                        <v-text-field
+                        <!-- <v-text-field
                             v-model="user.degree"
                             class="field"
                             label="Degree"
                             type="text"
                             hide-details="auto"
                             :disabled="isDelete"
-                        />
+                        /> -->
                         <v-text-field
                             ref="position"
                             v-model="user.position"
@@ -285,10 +285,10 @@ export default {
         margin-bottom: 15px;
 
         &-title {
-            font-size: 50px !important;
+            font-size: 44px !important;
             font-weight: 900;
             text-align: start;
-            line-height: 50px;
+            line-height: 44px;
             margin-bottom: 10px;
             font-family: "Source Sans Pro", sans-serif !important;
             text-transform: uppercase;

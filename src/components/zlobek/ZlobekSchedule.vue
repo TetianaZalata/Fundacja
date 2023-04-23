@@ -2,21 +2,21 @@
     <main class="zlobek-plan-container" app>
         <h1 class="title">RAMOWY ROZKŁAD DNIA</h1>
 
-        <h3>6.00–8.00 – PRZYJMOWANIE DZIECI</h3>
+        <h3>6.00–8.00 — PRZYJMOWANIE DZIECI</h3>
         <p>
             - zabawy dowolne<br>
             - indywidualne zabawy edukacyjne z opiekunami<br>
             - możliwość indywidualnych kontaktów z rodzicami<br>
         </p>
 
-        <h3>8.00–9.00 – ŚNIADANIE</h3>
+        <h3>8.00–9.00 — ŚNIADANIE</h3>
         <p>
             - czynności higieniczne i pielęgnacyjne<br>
             - wdrażanie elementów higieny osobiste<br>
             - posiłek<br>
         </p>
 
-        <h3>9.00–11.00 – ZAJĘCIA, w tym II śniadanie</h3>
+        <h3>9.00–11.00 — ZAJĘCIA, w tym II śniadanie</h3>
         <p>
             - zajęcia ruchowe, taniec<br>
             - zajęcia rytmiczne i umuzykalniające<br>
@@ -28,26 +28,26 @@
             - zajęcia usprawniające<br>
         </p>
 
-        <h3>11.00–12.00 – OBIAD</h3>
+        <h3>11.00–12.00 — OBIAD</h3>
         <p>
             - czynności higieniczne i pielęgnacyjne<br>
             - wdrażanie elementów higieny osobistej<br>
             - posiłek<br>
         </p>
 
-        <h3>12.00–14.00 – SEN</h3>
+        <h3>12.00–14.00 — SEN</h3>
         <p>
             - w tym słuchanie bajek, kołysanek, muzyki relaksacyjnej<br>
         </p>
 
-        <h3>14.00–14.30 – PODWIECZOREK</h3>
+        <h3>14.00–14.30 — PODWIECZOREK</h3>
         <p>
             - czynności higieniczne i pielęgnacyjne<br>
             - wdrażanie elementów higieny osobistej<br>
             - posiłek<br>
         </p>
 
-        <h3>14.30–16.30 – ZAJĘCIA DOWOLNE, w tym odbiór dzieci przez rodziców</h3>
+        <h3>14.30–16.30 — ZAJĘCIA DOWOLNE, w tym odbiór dzieci przez rodziców</h3>
         <p>
             - zabawy w kącikach zainteresowań<br>
             - czas na indywidualne rozmowy rodziców z opiekunami<br>
@@ -70,10 +70,10 @@ export default {
         font-family: 'Source Sans Pro', sans-serif;
 
         .title {
-            font-size: 50px !important;
+            font-size: 44px !important;
             font-weight: 900;
             text-align: start;
-            line-height: 50px;
+            line-height: 44px;
             margin-bottom: 40px;
             font-family: 'Source Sans Pro', sans-serif !important;
         }

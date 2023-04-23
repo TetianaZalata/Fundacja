@@ -7,6 +7,7 @@
                     class="field"
                     label="Login"
                     type="email"
+                    name="email"
                     :rules="rules"
                     hide-details="auto"
                     :disabled="isAuth"
@@ -82,6 +83,13 @@ export default {
                 this.clearAll();
             }
         },
+    },
+    created() {
+        window.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.logIn();
+            }
+        })
     },
     computed: {
         ...mapGetters('authUser', ['isAuth']),

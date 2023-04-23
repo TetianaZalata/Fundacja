@@ -52,8 +52,8 @@ export default [
             },
             {
                 alias: 'Obsługa prawna',
-                link: 'https://auxilia-oswiata.pl/',
-                iconFile: 'Auxilia.png',
+                link: 'https://honestia.pl/',
+                iconFile: 'Honestia.png',
             },
         ]
     },

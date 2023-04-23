@@ -16,7 +16,7 @@
         },
         data() {
             return {
-                title: 'KADRA LICEUM',
+                title: 'KADRA LICEUM  OGÓLNOKSZTAŁCĄCE',
                 personnelList: [],
                 personnelType: 'liceum-personnel'
             }
