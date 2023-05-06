@@ -12,21 +12,12 @@
             </div>
             <v-simple-table>
                 <template v-slot:default>
-                    <thead>
-                        <tr class="blue-grey lighten-4">
-                            <th class="text-left">Imię i Nazwisko</th>
-                            <!-- <th class="text-left">Stopień</th> -->
-                            <th class="text-left">Pozycja</th>
-                            <th v-if="isAuth">Działania</th>
-                        </tr>
-                    </thead>
                     <tbody v-if="!isLoading && personnelList">
                         <tr
                             v-for="(item, key) in personnelList"
                             :key="key"
                         >
                             <td class="text-left">{{ item.name }}</td>
-                            <!-- <td class="text-left">{{ item.degree }}</td> -->
                             <td class="text-left">{{ item.position }}</td>
                             <td
                                 v-if="isAuth"
@@ -83,14 +74,6 @@
                             :disabled="isDelete"
                             required
                         />
-                        <!-- <v-text-field
-                            v-model="user.degree"
-                            class="field"
-                            label="Degree"
-                            type="text"
-                            hide-details="auto"
-                            :disabled="isDelete"
-                        /> -->
                         <v-text-field
                             ref="position"
                             v-model="user.position"
