@@ -38,9 +38,9 @@
   }
 
   // Specify Quill fonts
-  const fontList = ['Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
+  const fontList = ['Avenir', 'Helvetica', 'Source Sans Pro', 'Arial', 'Courier', 'Garamond', 'Tahoma', 'Times New Roman', 'Verdana'];
   const fontNames = fontList.map(font => getFontName(font));
-  const fonts = Quill.import('formats/font');
+  const fonts = Quill.import('attributors/class/font');
   fonts.whitelist = fontNames;
   Quill.register(fonts, true);
 
@@ -102,18 +102,29 @@
     watch: {
       dialog(newVal) {
         this.isShow = newVal;
-      }
+      },
+      calendarType(newVal) {
+        if (newVal.length) {
+          this.getCalendar();
+        }
+      },
     },
     created() {
-      this.getSchoolCalendar();
+      if (this.calendarType.length) {
+        this.getCalendar();
+      }
     },
     methods: {
-      getSchoolCalendar() {
+      getCalendar() {
         const db = getDatabase();
         const dbRef = ref(db, this.calendarType);
 
         onValue(dbRef, (snapshot) => {
-          this.content.value = snapshot.val().value || '';
+          if (snapshot.val() !== null) {
+            this.content.value = snapshot.val().value;
+          } else {
+            this.content.value = '';
+          }
         }, {
           onlyOnce: false,
         });
@@ -157,7 +168,3 @@
     },
   }
 </script>
-
-<style lang="scss" scoped>
-  
-</style>

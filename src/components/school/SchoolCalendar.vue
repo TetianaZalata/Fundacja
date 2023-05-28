@@ -42,7 +42,6 @@
           :calendarType="calendarType"
           @close="dialog=false"
         />
-        
     </main>
 </template>
 
@@ -70,7 +69,7 @@
     computed: {
       ...mapGetters('authUser', ['isAuth', 'isLoading']),
       noContentStyles() {
-        if(this.calendar && !this.calendar.value) {
+        if(!this.calendar || !this.calendar.value) {
           return {
             'justify-content': 'center',
             'align-items': 'center'
@@ -118,6 +117,7 @@
 
           .text-value {
             width: 100%;
+            text-align: start;
           }
 
           .no-data {
@@ -127,10 +127,4 @@
           }
         }
     }
-</style>
-<style lang="css">
-  @import "~vue2-editor/dist/vue2-editor.css";
-  @import '~quill/dist/quill.core.css';
-  @import '~quill/dist/quill.bubble.css';
-  @import '~quill/dist/quill.snow.css';
 </style>

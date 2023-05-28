@@ -1,90 +1,130 @@
 <template>
-    <main class="zlobek-plan-container" app>
-        <h1 class="title">RAMOWY ROZKŁAD DNIA</h1>
-
-        <h3>6.00–8.00 — PRZYJMOWANIE DZIECI</h3>
-        <p>
-            - zabawy dowolne<br>
-            - indywidualne zabawy edukacyjne z opiekunami<br>
-            - możliwość indywidualnych kontaktów z rodzicami<br>
-        </p>
-
-        <h3>8.00–9.00 — ŚNIADANIE</h3>
-        <p>
-            - czynności higieniczne i pielęgnacyjne<br>
-            - wdrażanie elementów higieny osobiste<br>
-            - posiłek<br>
-        </p>
-
-        <h3>9.00–11.00 — ZAJĘCIA, w tym II śniadanie</h3>
-        <p>
-            - zajęcia ruchowe, taniec<br>
-            - zajęcia rytmiczne i umuzykalniające<br>
-            - różnorodne zabawy plastyczne<br>
-            - zajęcia tematyczne<br>
-            - zajęcia kształtujące motorykę małą i dużą<br>
-            - zajęcia wspomagające naukę prawidłowego mówienia<br>
-            - zajęcia na świeżym powietrzu - spacery<br>
-            - zajęcia usprawniające<br>
-        </p>
-
-        <h3>11.00–12.00 — OBIAD</h3>
-        <p>
-            - czynności higieniczne i pielęgnacyjne<br>
-            - wdrażanie elementów higieny osobistej<br>
-            - posiłek<br>
-        </p>
-
-        <h3>12.00–14.00 — SEN</h3>
-        <p>
-            - w tym słuchanie bajek, kołysanek, muzyki relaksacyjnej<br>
-        </p>
-
-        <h3>14.00–14.30 — PODWIECZOREK</h3>
-        <p>
-            - czynności higieniczne i pielęgnacyjne<br>
-            - wdrażanie elementów higieny osobistej<br>
-            - posiłek<br>
-        </p>
-
-        <h3>14.30–16.30 — ZAJĘCIA DOWOLNE, w tym odbiór dzieci przez rodziców</h3>
-        <p>
-            - zabawy w kącikach zainteresowań<br>
-            - czas na indywidualne rozmowy rodziców z opiekunami<br>
-        </p>
+    <main class="zlobek-calendar-container" app>
+        <div
+          v-if="isAuth"
+          class="edit-btn"
+        >
+          <v-btn
+            class="ma-2"
+            color="primary"
+            @click="dialog=true"
+          >
+            {{ calendar?.value ? 'Edit' : 'add' }}
+          </v-btn>
+        </div>
+        <div
+          class="text-container"
+          :style="noContentStyles"
+        >
+          <div
+            v-if="calendar?.value"
+            v-html="calendar?.value"
+            class="text-value"
+          />
+          <div
+              v-else-if="!calendar?.value && loading"
+              class="d-flex justify-center ma-5"
+          >
+            <v-progress-circular
+                indeterminate
+                color="primary"
+            />
+          </div>
+          <div
+            v-if="!calendar?.value && !loading"
+            class="no-data"
+          >
+            brak dostępnych danych
+          </div>
+        </div>
+        <HTMLEditor
+          :dialog="dialog"
+          :calendarType="calendarType"
+          @close="dialog=false"
+        />
     </main>
 </template>
 
 <script>
-export default {
-    name: ''
-}
+  import { getDatabase, ref, onValue } from "firebase/database";
+  import { mapGetters } from 'vuex';
+  import HTMLEditor from '@/components/shared/HTMLEditor.vue';
+
+  export default {
+    name: "ZlobekCalendar",
+    components: {
+      HTMLEditor,
+    },
+    data() {
+      return {
+        calendar: null,
+        calendarType: 'zlobek-calendar',
+        dialog: false,
+        loading: false,
+      }
+    },
+    created() {
+      this.getZlobekCalendar();
+    },
+    computed: {
+      ...mapGetters('authUser', ['isAuth', 'isLoading']),
+      noContentStyles() {
+        if(!this.calendar || !this.calendar.value) {
+          return {
+            'justify-content': 'center',
+            'align-items': 'center'
+          };
+        }
+        return {};
+      },
+    },
+    methods: {
+      async getZlobekCalendar() {
+        this.loading = true;
+        const db = getDatabase();
+        const dbRef = ref(db, this.calendarType);
+
+        await onValue(dbRef, (snapshot) => {
+          this.calendar = snapshot.val() || '';
+        }, {
+          onlyOnce: false,
+        });
+        this.loading = false;
+      }
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
-    .zlobek-plan-container {
+    .zlobek-calendar-container {
         width: 100%;
         height: 100%;
         margin-top: 15px;
         margin-bottom: 15px;
         font-family: 'Source Sans Pro', sans-serif;
-
-        .title {
-            font-size: 44px !important;
-            font-weight: 900;
-            text-align: start;
-            line-height: 44px;
-            margin-bottom: 40px;
-            font-family: 'Source Sans Pro', sans-serif !important;
+        display: flex;
+        flex-direction: column;
+        
+        .edit-btn {
+          display: flex;
+          flex-direction: column;
+          align-self: flex-end;
         }
 
-        h3 {
-            text-align: start;
-            font-size: 28px !important;
-        }
+        .text-container {
+          display: flex;
+          height: 100%;
 
-        p {
+          .text-value {
+            width: 100%;
             text-align: start;
+          }
+
+          .no-data {
+            font-size: 44px;
+            color: lightgray;
+            text-transform: uppercase;
+          }
         }
     }
 </style>
