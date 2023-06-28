@@ -253,7 +253,6 @@
           })
       },
       deleteGroup() {
-          console.log('deleteGroup', this.currentCalendarType);
           const db = getDatabase();
           const dbRef = ref(db, `${this.preschoolGroupsType}/${this.form.key}`);
 

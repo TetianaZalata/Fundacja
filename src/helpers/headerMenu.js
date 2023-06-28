@@ -64,6 +64,11 @@ export default [
         item: 'school',
         subitems: [
             {
+                alias: 'E-Dziennik ',
+                link: 'https://uonetplus.vulcan.net.pl/powiatgnieznienski',
+                iconFile: 'E_Dziennik.png',
+            },
+            {
                 alias: 'Aktualności ',
                 item: 'school',
                 link: 'https://www.facebook.com/www.szko',
@@ -102,6 +107,11 @@ export default [
         name: LICEUM_KALENDARZ,
         item: 'hschool',
         subitems: [
+            {
+                alias: 'E-Dziennik ',
+                link: 'https://uonetplus.vulcan.net.pl/gminagniezno',
+                iconFile: 'E_Dziennik.png',
+            },
             {
                 alias: 'Aktualności ',
                 item: 'hschool',
