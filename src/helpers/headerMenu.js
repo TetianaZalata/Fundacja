@@ -1,6 +1,7 @@
 import {
     FUNDACJA_CELE,
     FUNDACJA_STATUT,
+    PROJECTS_UE,
 
     SZKOLA_KALENDARZ,
     SZKOLA_PODRECZNIKI,
@@ -44,6 +45,18 @@ export default [
                 route: FUNDACJA_STATUT,
                 name: FUNDACJA_STATUT,
                 item: 'fund',
+            },
+            {
+                alias: 'Projekty UE',
+                route: PROJECTS_UE,
+                name: PROJECTS_UE,
+                item: 'fund',
+            },
+            {
+                alias: 'Wypoczynek dzieci i młodzieży',
+                link: 'https://www.facebook.com',
+                icon: mdiFacebook,
+                iconColor: '#4267B2',
             },
             {
                 alias: 'Sprawozdańia',

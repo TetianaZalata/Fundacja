@@ -1,5 +1,5 @@
 <template>
-    <main class="school-calendar-container">
+    <main class="school-calendar-container white">
         <div
           v-if="isAuth"
           class="edit-btn"

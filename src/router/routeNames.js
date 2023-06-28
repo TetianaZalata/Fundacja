@@ -1,6 +1,7 @@
 // fundacja
 const FUNDACJA_CELE = 'fund-goals';
 const FUNDACJA_STATUT = 'fund-statute';
+const PROJECTS_UE = 'fund-projects';
 const FUNDACJA_SPRAWOZDANIA = 'fund-reports';
 const FUNDACJA_OBSLUGAPRAWNA = 'fund-legal-support';
 const FUNDACJA_KONTAKT = 'fund-contact';
@@ -42,6 +43,7 @@ const LOGIN = 'login';
 export {
     FUNDACJA_CELE,
     FUNDACJA_STATUT,
+    PROJECTS_UE,
     FUNDACJA_SPRAWOZDANIA,
     FUNDACJA_OBSLUGAPRAWNA,
     FUNDACJA_KONTAKT,

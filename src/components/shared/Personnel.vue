@@ -14,7 +14,7 @@
                 <template v-slot:default>
                     <tbody v-if="!isLoading && personnelList">
                         <tr
-                            v-for="(item, key) in personnelList"
+                            v-for="(item, key) in sortedByName"
                             :key="key"
                         >
                             <td class="text-left">{{ item.name }}</td>
@@ -159,6 +159,13 @@ export default {
         ...mapGetters('authUser', ['isAuth', 'isLoading']),
         isDelete() {
             return this.action.toLowerCase() === 'delete';
+        },
+        sortedByName() {
+            if (!!this.personnelList && Object.values(this.personnelList).length) {
+                const personnelList = { ...this.personnelList };
+                return Object.values(personnelList).sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+            }
+            return [];
         },
     },
     methods: {

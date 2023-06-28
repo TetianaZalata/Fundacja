@@ -1,12 +1,12 @@
 <template>
-    <main class="school-textbooks-container">
+    <main class="fund-projects-container">
         <v-btn
           v-if="isAuth"
           class="mt-2 mb-5 align-self-end"
           color="primary"
           @click="openModal(null, null, 'create')"
         >
-          Dodaj klasa
+          Dodaj projekt
         </v-btn>
         
         <v-tabs
@@ -16,7 +16,7 @@
           grow
         >
           <v-tab
-            v-for="(item, key) in schoolClasses"
+            v-for="(item, key) in fundProjects"
             :key="key"
           >
             <span class="mr-3">{{ item.name }}</span>
@@ -39,11 +39,11 @@
 
         <v-tabs-items v-model="tab">
           <v-tab-item
-            v-for="(item, key) in schoolClasses"
+            v-for="(item, key) in fundProjects"
             :key="key"
           >
             <div
-              v-if="isAuth && computedSchoolClasses.length"
+              v-if="isAuth && computedFundProjects.length"
               class="edit-btn"
             >
               <v-btn
@@ -51,7 +51,7 @@
                 color="primary"
                 @click="editorDialog=true"
               >
-                {{ textbooksList?.value ? 'Edit' : 'add' }}
+                {{ projectsList?.value ? 'Edit' : 'add' }}
               </v-btn>
             </div>
             <div
@@ -59,12 +59,12 @@
               :style="noContentStyles"
             >
               <div
-                v-if="textbooksList?.value"
-                v-html="textbooksList?.value"
+                v-if="projectsList?.value"
+                v-html="projectsList?.value"
                 class="text-value"
               />
               <div
-                  v-else-if="!textbooksList?.value && loading"
+                  v-else-if="!projectsList?.value && loading"
                   class="d-flex justify-center ma-5"
               >
                 <v-progress-circular
@@ -73,7 +73,7 @@
                 />
               </div>
               <div
-                v-if="!textbooksList?.value && !loading"
+                v-if="!projectsList?.value && !loading"
                 class="no-data"
               >
                 brak dostępnych danych
@@ -83,24 +83,24 @@
         </v-tabs-items>
         <HTMLEditor
           :dialog="editorDialog"
-          :calendarType="currentTextbooksListType"
+          :calendarType="currentProjectsListType"
           @close="editorDialog=false"
         />
         <v-dialog
-            v-model="classDialog"
+            v-model="projectDialog"
             max-width="400"
         >
             <v-card class="pa-5">
                 <v-card-title class="text-h5">{{ modalTitle || '' }}</v-card-title>
                 <v-card-text v-if="isDelete">
-                    Czy na pewno chcesz usunąć te zajęcia?
+                    Czy na pewno chcesz usunąć ten projekt?
                 </v-card-text>
                 <v-card-text>
                     <v-text-field
-                        ref="className"
+                        ref="projectName"
                         v-model="form.name"
                         class="field"
-                        label="Nazwa klasy"
+                        label="Nazwa projekty"
                         type="text"
                         :rules="rules"
                         :error-messages="errorMessages"
@@ -119,7 +119,7 @@
                     </v-btn>
                     <v-btn
                         tile
-                        @click="handleSchoolClass"
+                        @click="handleFundProject"
                         text
                     >
                         {{ action }}
@@ -130,16 +130,16 @@
     </main>
 </template>
 <script>
-  import { getDatabase, ref, onValue, push, set, update, remove } from "firebase/database";
-  import { v4 as uuidv4 } from 'uuid';
-  import { mapGetters } from 'vuex';
-  import HTMLEditor from '@/components/shared/HTMLEditor.vue';
-  import SvgIcon from '@jamescoyle/vue-icon';
-  import { mdiPencilOutline, mdiTrashCanOutline } from "@mdi/js";
+    import { getDatabase, ref, onValue, push, set, update, remove } from "firebase/database";
+    import { v4 as uuidv4 } from 'uuid';
+    import { mapGetters } from 'vuex';
+    import HTMLEditor from '@/components/shared/HTMLEditor.vue';
+    import SvgIcon from '@jamescoyle/vue-icon';
+    import { mdiPencilOutline, mdiTrashCanOutline } from "@mdi/js";
 
-  export default {
-      name: 'SchoolTextbooks',
-      components: {
+    export default {
+        name: 'FundProjects',
+        components: {
         HTMLEditor,
         SvgIcon,
       },
@@ -147,13 +147,13 @@
         return {
           mdiPencilOutline,
           mdiTrashCanOutline,
-          textbooksList: null,
-          currentTextbooksListType: '',
-          schoolClasses: [],
+          projectsList: null,
+          currentProjectsListType: '',
+          fundProjects: [],
           tab: null,
-          schoolClassesType: 'school-classes',
+          fundProjectsType: 'fund-projects',
           editorDialog: false,
-          classDialog: false,
+          projectDialog: false,
           loading: false,
           form: {
             name: '',
@@ -171,12 +171,12 @@
         }
       },
       created() {
-        this.getSchoolClasses();
+        this.getFundProjects();
       },
       computed: {
         ...mapGetters('authUser', ['isAuth', 'isLoading']),
         noContentStyles() {
-          if(!this.textbooksList || !this.textbooksList.value) {
+          if(!this.projectsList || !this.projectsList.value) {
             return {
               'justify-content': 'center',
               'align-items': 'center'
@@ -187,36 +187,36 @@
         isDelete() {
             return this.action.toLowerCase() === 'delete';
         },
-        computedSchoolClasses() {
-          return Object.values(this.schoolClasses);
+        computedFundProjects() {
+          return Object.values(this.fundProjects);
         },
       },
       watch: {
         tab(newVal) {
-          if (this.computedSchoolClasses.length) {
-            this.currentTextbooksListType = this.computedSchoolClasses[newVal].id;
-            this.getSchoolTextbooksList();
+          if (this.computedFundProjects.length) {
+            this.currentProjectsListType = this.computedFundProjects[newVal].id;
+            this.getFundProjectsList();
           } else {
-            this.currentTextbooksListType = '';
+            this.currentProjectsListType = '';
           }
         },
       },
       methods: {
-        getSchoolClasses() {
+        getFundProjects() {
             const db = getDatabase();
-            const dbRef = ref(db, this.schoolClassesType);
+            const dbRef = ref(db, this.fundProjectsType);
             
             onValue(dbRef, (snapshot) => {
-                this.schoolClasses = snapshot.val() || [];
+                this.fundProjects = snapshot.val() || [];
             }, {
                 onlyOnce: false
             });
             
         },
-        addNewClass() {
+        addNewProject() {
             this.error = false;
-            if(!this.$refs.className.value) {
-                this.$refs.className.validate(true);
+            if(!this.$refs.projectName.value) {
+                this.$refs.projectName.validate(true);
                 this.error = true;
             }
             if(this.error) {
@@ -224,7 +224,7 @@
             }
 
             const db = getDatabase();
-            const list = ref(db, this.schoolClassesType);
+            const list = ref(db, this.fundProjectsType);
             const newListItem = push(list);
             set(newListItem, {
                 name: this.form.name,
@@ -236,9 +236,9 @@
                 console.error(err);
             })
         },
-        editClass() {
+        editProject() {
             const db = getDatabase();
-            const dbRef = ref(db, `${this.schoolClassesType}/${this.form.key}`);
+            const dbRef = ref(db, `${this.fundProjectsType}/${this.form.key}`);
             const data = {
                 name: this.form.name,
             }
@@ -250,9 +250,9 @@
                 console.error(err);
             })
         },
-        deleteClass() {
+        deleteProject() {
             const db = getDatabase();
-            const dbRef = ref(db, `${this.schoolClassesType}/${this.form.key}`);
+            const dbRef = ref(db, `${this.fundProjectsType}/${this.form.key}`);
 
             remove(dbRef)
             .then(() => {
@@ -261,49 +261,49 @@
             .catch((err) => {
                 console.error(err);
             })
-            this.deleteSchoolTextbookList();
+            this.deleteFundProjectsList();
         },
         openModal(item, key, action) {
-            this.classDialog = true;
+            this.projectDialog = true;
 
             if(action.toLowerCase() === 'edit' || action.toLowerCase() === 'delete') {
                 this.form.name = item.name;
                 this.form.key = key;
-                this.currentTextbooksListType = item.id;
+                this.currentProjectsListType = item.id;
             }
             
-            this.modalTitle = `${action} klas`;
+            this.modalTitle = `${action} projekt`;
             this.action = action.toLowerCase();
         },
         closeDialog() {
-            this.classDialog = false;
+            this.projectDialog = false;
             this.form.name = '';
             this.form.id = '';
         },
-        handleSchoolClass() {
+        handleFundProject() {
             if (this.action.toLowerCase() === 'create') {
-                this.addNewClass();
+                this.addNewProject();
             } else if (this.action.toLowerCase() === 'edit') {
-                this.editClass();
+                this.editProject();
             } else if (this.action.toLowerCase() === 'delete') {
-                this.deleteClass();
+                this.deleteProject();
             }
         },
-        getSchoolTextbooksList() {
+        getFundProjectsList() {
           this.loading = true;
           const db = getDatabase();
-          const dbRef = ref(db, this.currentTextbooksListType);
+          const dbRef = ref(db, this.currentProjectsListType);
 
           onValue(dbRef, (snapshot) => {
-            this.textbooksList = snapshot.val() || '';
+            this.projectsList = snapshot.val() || '';
           }, {
             onlyOnce: false,
           });
           this.loading = false;
         },
-        deleteSchoolTextbookList() {
+        deleteFundProjectsList() {
           const db = getDatabase();
-          const dbRef = ref(db, this.currentTextbooksListType);
+          const dbRef = ref(db, this.currentProjectsListType);
 
           remove(dbRef)
           .then(() => {
@@ -313,11 +313,11 @@
           })
         },
       },
-  }
+    }
 </script>
 
 <style lang="scss" scoped>
-    .school-textbooks-container {
+    .fund-projects-container {
         width: 100%;
         margin-top: 15px;
         margin-bottom: 15px;

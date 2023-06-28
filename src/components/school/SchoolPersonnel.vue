@@ -33,8 +33,7 @@
                     this.personnelList = snapshot.val() || [];
                 }, {
                     onlyOnce: false
-                });
-                
+                });                
             }
         }
     }
