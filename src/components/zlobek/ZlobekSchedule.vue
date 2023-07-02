@@ -1,5 +1,5 @@
 <template>
-    <main class="zlobek-calendar-container" app>
+    <main class="zlobek-calendar-container white" app>
         <div
           v-if="isAuth"
           class="edit-btn"
