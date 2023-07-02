@@ -163,9 +163,18 @@ export default {
         sortedByName() {
             if (!!this.personnelList && Object.values(this.personnelList).length) {
                 const personnelList = { ...this.personnelList };
-                return Object.values(personnelList).sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                const sortedArray = Object.values(personnelList).sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                let sortedObject = {};
+                sortedArray.forEach((i) => {
+                  Object.entries(personnelList).forEach(([key, val]) => {
+                    if (i.id === val.id) {
+                      sortedObject[key] = val;
+                    }
+                  })
+                })
+                return sortedObject;
             }
-            return [];
+            return {};
         },
     },
     methods: {
