@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app color="#1A237E" dense>
+    <v-app-bar app color="grey lighten-3" dense>
         <v-menu
             v-for="(item, index) in items"
             class="top-menu"
@@ -14,7 +14,6 @@
                     tile
                     v-bind="attrs"
                     v-on="on"
-                    color="white"
                     :class="{ 'selected-item' : currentRouteName === item.item }"
                 >
                     <router-link :to="{ name: item.route }">
@@ -61,7 +60,6 @@
             tile
             v-if="isAuth"
             @click="logOut"
-            color="#283593"
         >Logout</v-btn>
     </v-app-bar>
 </template>
@@ -105,7 +103,7 @@
 
 <style lang="scss" scoped>
     a {
-        color: #E8EAF6 !important;
+        color: black !important;
         text-decoration: none;
     }
 
@@ -114,12 +112,6 @@
     }
 
     .selected-item {
-        background-color: #283593;
+        background-color: #CFD8DC;
     }
-
-    .v-list {
-      color: #E8EAF6 !important;
-      background-color: #1A237E;
-    }
-
 </style>
