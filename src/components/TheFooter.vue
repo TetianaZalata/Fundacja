@@ -1,5 +1,5 @@
 <template>
-    <v-footer app class="footer pa-3 justify-space-around grey lighten-3" absolute p-3>
+    <v-footer app class="footer pa-3 justify-space-around" color="#1A237E" absolute p-3>
         <section class="text-justify subtitle-2">
             <h3>Fundacja Wspierania<br> i Rozwoju Edukacji</h3>
             <div class="caption">
@@ -95,8 +95,12 @@ export default {
         height: 16px;
     }
 
+    h3 {
+      color: #E8EAF6;
+    }
+
     a {
-        color: #000000de;
+        color: #E8EAF6;
     }
 }
 
