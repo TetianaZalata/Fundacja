@@ -27,6 +27,7 @@
                     :key="subitem.alias"
                     :link="true"
                     :class="{ 'selected-item' : $route.name === subitem.route }"
+                    @click="$router.push({ name: subitem.route })"
                 >
                     <a
                         v-if="!!subitem.link"
