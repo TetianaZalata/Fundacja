@@ -67,7 +67,7 @@
       this.getZlobekCalendar();
     },
     computed: {
-      ...mapGetters('authUser', ['isAuth', 'isLoading']),
+      ...mapGetters('authUser', ['isAuth']),
       noContentStyles() {
         if(!this.calendar || !this.calendar.value) {
           return {

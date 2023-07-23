@@ -56,7 +56,7 @@ export default [
                 alias: 'Wypoczynek dzieci i młodzieży',
                 link: 'https://www.facebook.com',
                 icon: mdiFacebook,
-                iconColor: '#ffffff',
+                iconColor: '#3b5998',
             },
             {
                 alias: 'Sprawozdańia',
@@ -86,7 +86,7 @@ export default [
                 item: 'school',
                 link: 'https://www.facebook.com/www.szko',
                 icon: mdiFacebook,
-                iconColor: '#ffffff',
+                iconColor: '#3b5998',
             },
             {
                 alias: 'Kalendarz',
@@ -130,7 +130,7 @@ export default [
                 item: 'hschool',
                 link: 'https://www.facebook.com/www.szko',
                 icon: mdiFacebook,
-                iconColor: '#ffffff',
+                iconColor: '#3b5998',
             },
             {
                 alias: 'Kalendarz',
@@ -169,7 +169,7 @@ export default [
                 item: 'kindergarten',
                 link: 'https://www.facebook.com/PrzedszkoleLesnaKraina',
                 icon: mdiFacebook,
-                iconColor: '#ffffff',
+                iconColor: '#3b5998',
             },
             {
                 alias: 'Rytm dnia',
@@ -208,7 +208,7 @@ export default [
                 item: 'naughty',
                 link: 'https://www.facebook.com/profile.php?id=100076191577542',
                 icon: mdiFacebook,
-                iconColor: '#ffffff',
+                iconColor: '#3b5998',
             },
             {
                 alias: 'Plan dnia',

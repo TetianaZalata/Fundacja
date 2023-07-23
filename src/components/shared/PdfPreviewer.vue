@@ -1,6 +1,9 @@
 <template>
     <section class="pdf-container">
-        <div class="counter-container">
+        <div
+            v-if="pages"
+            class="counter-container"
+        >
             <v-btn
                 class="prev"
                 elevation="2"
@@ -48,7 +51,10 @@
             :page="page"
             @num-pages="pagesSumm"
         />
-        <div class="counter-container">
+        <div
+            v-if="pages"
+            class="counter-container"
+        >
             <v-btn
                 class="prev"
                 elevation="2"
