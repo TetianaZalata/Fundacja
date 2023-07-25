@@ -1,9 +1,8 @@
 <template>
-    <PdfPreviewer :src="src" />
+    <PdfPreviewer :documentType="documentType" />
 </template>
 
 <script>
-    
     import PdfPreviewer from '@/components/shared/PdfPreviewer.vue'
     export default {
         name: 'SchoolDocumentation',
@@ -12,7 +11,7 @@
         },
         data() {
             return {
-                src: 'Statut-SP-TJ-1-09-2022.pdf',
+                documentType: 'school-statute',
             }
         },
     }

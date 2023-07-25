@@ -1,12 +1,17 @@
 <template>
-    <ComingSoon />
+    <PdfPreviewer :documentType="documentType" />
 </template>
 <script>
-import ComingSoon from "@/components/shared/ComingSoon.vue";
-export default {
-    name: 'NaughtyDocumentation',
-    components: {
-        ComingSoon,
-    }
-}
+  import PdfPreviewer from '@/components/shared/PdfPreviewer.vue';
+  export default {
+      name: 'ZlobekDocumentation',
+      components: {
+          PdfPreviewer,
+      },
+      data() {
+          return {
+              documentType: 'zlobek-statute',
+          }
+      },
+  }
 </script>
