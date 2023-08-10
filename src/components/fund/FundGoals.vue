@@ -52,45 +52,45 @@
   export default {
       name: 'FundGoals',
       components: {
-      HTMLEditor,
-    },
-    data() {
-      return {
-        goals: null,
-        goalsType: 'fund-goals',
-        dialog: false,
-        loading: false,
-      }
-    },
-    created() {
-      this.getFundGoals();
-    },
-    computed: {
-      ...mapGetters('authUser', ['isAuth']),
-      noContentStyles() {
-        if(!this.goals || !this.goals.value) {
-          return {
-            'justify-content': 'center',
-            'align-items': 'center'
-          };
-        }
-        return {};
+        HTMLEditor,
       },
-    },
-    methods: {
-      async getFundGoals() {
-        this.loading = true;
-        const db = getDatabase();
-        const dbRef = ref(db, this.goalsType);
+      data() {
+        return {
+          goals: null,
+          goalsType: 'fund-goals',
+          dialog: false,
+          loading: false,
+        }
+      },
+      created() {
+        this.getFundGoals();
+      },
+      computed: {
+        ...mapGetters('authUser', ['isAuth']),
+        noContentStyles() {
+          if(!this.goals || !this.goals.value) {
+            return {
+              'justify-content': 'center',
+              'align-items': 'center'
+            };
+          }
+          return {};
+        },
+      },
+      methods: {
+        async getFundGoals() {
+          this.loading = true;
+          const db = getDatabase();
+          const dbRef = ref(db, this.goalsType);
 
-        await onValue(dbRef, (snapshot) => {
-          this.goals = snapshot.val() || '';
-        }, {
-          onlyOnce: false,
-        });
-        this.loading = false;
-      }
-    },
+          await onValue(dbRef, (snapshot) => {
+            this.goals = snapshot.val() || '';
+          }, {
+            onlyOnce: false,
+          });
+          this.loading = false;
+        }
+      },
   }
 </script>
 
