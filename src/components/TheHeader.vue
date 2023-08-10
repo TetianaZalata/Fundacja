@@ -2,7 +2,6 @@
     <v-app-bar app color="grey lighten-3" dense>
         <v-menu
             v-for="(item, index) in items"
-            class="top-menu"
             :key="`${item.name}-${index}`"
             offset-y
             rounded="0"
@@ -27,19 +26,20 @@
                     :key="subitem.alias"
                     :link="true"
                     :class="{ 'selected-item' : $route.name === subitem.route }"
-                    @click="$router.push({ name: subitem.route })"
                 >
                     <a
                         v-if="!!subitem.link"
                         :href="subitem.link"
+                        class="router-item"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         {{ subitem.alias }}
                         <svg-icon v-if="subitem.icon" class="ml-3" :style="{color: subitem.iconColor}" type="mdi" :path="subitem.icon"></svg-icon>
-                        <img v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
+                        <img alt="icon" v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
                     </a>
                     <router-link
+                        class="router-item"
                         v-else
                         :to="{ name: subitem.route }"
                     >
@@ -102,16 +102,24 @@
 </script>
 
 <style lang="scss" scoped>
-    a {
-        color: black !important;
-        text-decoration: none;
-    }
-
     .main-logo {
-        max-height: 54px;
+      max-height: 54px;
     }
 
     .selected-item {
-        background-color: #CFD8DC;
+      background-color: #CFD8DC;
     }
+
+    .router-item {
+      width: 100%;
+      height: 100%;
+      text-align: start;
+      color: black !important;
+      text-decoration: none;
+    }
+
+    a {
+      color: black !important;
+      text-decoration: none;
+    }    
 </style>
