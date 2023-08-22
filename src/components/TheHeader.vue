@@ -44,6 +44,7 @@
                         :to="{ name: subitem.route }"
                     >
                         {{ subitem.alias }}
+                        <img alt="icon" v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
                     </router-link>
                 </v-list-item>
             </v-list>
