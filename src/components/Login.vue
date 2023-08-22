@@ -103,11 +103,15 @@ export default {
                 this.messages.success = 'You are logged in';
             }).catch((error) => {
                 this.alert = true;
+                console.log(error);
                 if(error.code === 'auth/invalid-email') {
                     this.messages.error = 'Invalid email';
                 }
                 if(error.code === 'auth/wrong-password') {
                     this.messages.error = 'Wrong password';
+                }
+                if(error.code === 'auth/user-not-found') {
+                    this.messages.error = 'User not found';
                 }
             }).finally(() => {
                 setTimeout(() => {
