@@ -39,6 +39,7 @@ export default [
                 route: FUNDACJA_CELE,
                 name: FUNDACJA_CELE,
                 item: 'fund',
+                iconFile: 'target.png',
             },
             {
                 alias: 'Statut',
@@ -52,6 +53,7 @@ export default [
                 route: PROJECTS_UE,
                 name: PROJECTS_UE,
                 item: 'fund',
+                iconFile: 'Flag_of_Europe.png',
             },
             {
                 alias: 'Wypoczynek dzieci i młodzieży',
@@ -206,6 +208,7 @@ export default [
                 item: 'kindergarten',
                 route: PRESCHOOL_REKRUTACJA,
                 name: PRESCHOOL_REKRUTACJA,
+                iconFile: 'children.png',
             },
         ],
     },
@@ -248,6 +251,7 @@ export default [
                 item: 'naughty',
                 route: ZLOBEK_REKRUTACJA,
                 name: ZLOBEK_REKRUTACJA,
+                iconFile: 'children.png',
             },
         ],
     },
