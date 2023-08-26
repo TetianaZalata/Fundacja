@@ -1,4 +1,5 @@
 // fundacja
+const FUNDACJA_MAIN = 'fund-main-page';
 const FUNDACJA_CELE = 'fund-goals';
 const FUNDACJA_STATUT = 'fund-statute';
 const PROJECTS_UE = 'fund-projects';
@@ -41,6 +42,7 @@ const KOLO_WOLONTARIATU = 'volunteering'
 const LOGIN = 'login';
 
 export {
+    FUNDACJA_MAIN,
     FUNDACJA_CELE,
     FUNDACJA_STATUT,
     PROJECTS_UE,

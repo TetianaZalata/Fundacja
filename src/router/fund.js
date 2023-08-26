@@ -1,3 +1,4 @@
+import FundMainPage from '@/components/fund/FundMainPage.vue';
 import FundGoals from '@/components/fund/FundGoals.vue';
 import FundLegalSupport from '@/components/fund/FundLegalSupport.vue';
 import FundReports from '@/components/fund/FundReports.vue';
@@ -5,6 +6,7 @@ import FundStatute from '@/components/fund/FundStatute.vue';
 import FundProjects from '@/components/fund/FundProjects.vue';
 
 import {
+    FUNDACJA_MAIN,
     FUNDACJA_CELE,
     FUNDACJA_STATUT,
     PROJECTS_UE,
@@ -13,6 +15,11 @@ import {
 } from '@/router/routeNames';
 
 export default [
+    {
+        path: `/${FUNDACJA_MAIN}`,
+        name: FUNDACJA_MAIN,
+        component: FundMainPage,
+    },
     {
         path: `/${FUNDACJA_CELE}`,
         name: FUNDACJA_CELE,

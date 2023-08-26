@@ -34,17 +34,18 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {{ subitem.alias }}
                         <svg-icon v-if="subitem.icon" class="ml-3" :style="{color: subitem.iconColor}" type="mdi" :path="subitem.icon"></svg-icon>
                         <img alt="icon" v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
+                        <span>{{ subitem.alias }}</span>
                     </a>
                     <router-link
                         class="router-item"
                         v-else
                         :to="{ name: subitem.route }"
                     >
-                        {{ subitem.alias }}
+                        <svg-icon v-if="subitem.icon" class="ml-3" :style="{color: subitem.iconColor}" type="mdi" :path="subitem.icon"></svg-icon>
                         <img alt="icon" v-if="subitem.iconFile" class="ml-3" :src="subitem.iconFile" height="24">
+                        <span>{{ subitem.alias }}</span>
                     </router-link>
                 </v-list-item>
             </v-list>
@@ -117,6 +118,13 @@
       text-align: start;
       color: black !important;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+      }
+
     }
 
     a {

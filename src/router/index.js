@@ -10,7 +10,7 @@ import zlobek from '@/router/zlobek'
 import Volunteering from '@/components/Volunteering.vue';
 import Login from '@/components/Login.vue';
 
-import { KOLO_WOLONTARIATU, LOGIN, FUNDACJA_CELE } from '@/router/routeNames';
+import { KOLO_WOLONTARIATU, LOGIN, FUNDACJA_MAIN } from '@/router/routeNames';
 
 Vue.use(VueRouter);
 
@@ -18,7 +18,7 @@ const routes = [
     {
         path: '/',
         redirect: {
-            name: FUNDACJA_CELE
+            name: FUNDACJA_MAIN
         },
     },
    ...fund,
