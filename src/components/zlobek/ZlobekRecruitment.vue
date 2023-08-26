@@ -49,7 +49,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
   import { mapGetters } from 'vuex';
   import HTMLEditor from '@/components/shared/HTMLEditor.vue';
 export default {
-    name: 'NaughtyRecruitment',
+    name: 'MangerRecruitment',
  components: {
         HTMLEditor,
       },

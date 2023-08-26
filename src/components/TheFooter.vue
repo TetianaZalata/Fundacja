@@ -1,5 +1,5 @@
 <template>
-    <v-footer app class="footer pa-3 justify-space-around grey lighten-3" absolute p-3>
+    <v-footer app class="footer pa-3 justify-space-around grey lighten-2" absolute p-3>
         <section class="text-justify subtitle-2">
             <h3>Fundacja Wspierania<br> i Rozwoju Edukacji</h3>
             <div class="caption">
@@ -98,9 +98,18 @@ export default {
     a {
         color: #000000de;
     }
-}
 
-.v-footer {
-    box-shadow: 0px -2px 4px -1px rgb(0 0 0 / 20%), 0px -2px 5px 0px rgb(0 0 0 / 14%), 0px -1px 10px 0px rgb(0 0 0 / 12%) !important;
+    @media screen and (max-width: 878px) {
+      section {
+          width: 50%;
+          margin-bottom: 10px;
+      }
+    }
+    @media screen and (max-width: 407px) {
+      section {
+          width: 100%;
+          margin-bottom: 10px;
+      }
+    }
 }
 </style>

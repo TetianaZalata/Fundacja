@@ -1,6 +1,9 @@
 <template>
     <section class="pdf-container">
-        <v-row v-if="isAuth">
+        <v-row
+          v-if="isAuth"
+          class="pdf-admin-pannel"
+        >
           <v-col>
               <v-btn
                   color="primary"
@@ -133,13 +136,19 @@
               </label>
           </div>
         </div>
+        <div class="pdf-file-download">
+            <svg-icon class="mr-5 red--text" type="mdi" :path="mdiFilePdfBox" :style="{width: '34px', height: '34px'}"></svg-icon>
+            <a :href="document" target="_blank">
+              {{ fileName }}
+            </a>
+        </div>
     </section>
      
 </template>
 
 <script>
     import SvgIcon from '@jamescoyle/vue-icon';
-    import { mdiSkipPrevious, mdiSkipNext } from "@mdi/js";
+    import { mdiSkipPrevious, mdiSkipNext, mdiFilePdfBox } from "@mdi/js";
     import pdf from 'vue-pdf'
     import { getDatabase, ref, onValue, set, remove } from 'firebase/database';
     import { mapGetters } from 'vuex';
@@ -163,7 +172,9 @@
                 pages: 0,
                 mdiSkipPrevious,
                 mdiSkipNext,
+                mdiFilePdfBox,
                 document: '',
+                documentName: '',
                 fileName: '',
                 base64String: '',
                 pageMounting: true,
@@ -224,6 +235,7 @@
                 onValue(dbRef, async (snapshot) => {
                     if (snapshot.val()) {
                       this.document = await this.base64ToPDF(snapshot.val().fileData);
+                      this.fileName = await snapshot.val().fileName;
                     }                    
                 }, {
                     onlyOnce: false
@@ -345,8 +357,24 @@
             }
         }
 
+        .pdf-file-download {
+            display: none;
+        }
+
         .file-upload {
             display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+          align-items: center;
+          
+          .pdf-view {
+              display: none;
+          }
+          .pdf-file-download {
+              display: flex;
+              align-items: center;
+          }
         }
     }
 </style>

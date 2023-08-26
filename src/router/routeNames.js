@@ -29,11 +29,11 @@ const PRESCHOOL_DOCUMENTY = 'kindergarten-documentation';
 const PRESCHOOL_REKRUTACJA = 'kindergarten-recruitment';
 
 // zlobek
-const ZLOBEK_STATUS_PRAWNY = 'naughty-legal-status';
-const ZLOBEK_PLAN_DNIA = 'naughty-day-plan';
-const ZLOBEK_KADRA = 'naughty-personnel';
-const ZLOBEK_DOCUMENTY = 'naughty-documentation';
-const ZLOBEK_REKRUTACJA = 'naughty-recruitment';
+const ZLOBEK_STATUS_PRAWNY = 'manger-legal-status';
+const ZLOBEK_PLAN_DNIA = 'manger-day-plan';
+const ZLOBEK_KADRA = 'manger-personnel';
+const ZLOBEK_DOCUMENTY = 'manger-documentation';
+const ZLOBEK_REKRUTACJA = 'manger-recruitment';
 
 // Wolontariatu
 const KOLO_WOLONTARIATU = 'volunteering'

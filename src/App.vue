@@ -95,6 +95,15 @@ nav {
         overflow: hidden;
         height: calc(100% - 150px);
         margin-bottom: 150px;
+
+        @media screen and (max-width: 878px) {
+            height: calc(100% - 320px);
+            margin-bottom: 320px;
+        }
+        @media screen and (max-width: 407px) {
+            height: calc(100% - 570px);
+            margin-bottom: 570px;
+        }
     }
 }
 
