@@ -107,7 +107,6 @@ export default {
     computed: {
         ...mapGetters("authUser", ["isAuth"]),
         currentRouteName() {
-            console.log(this.$route.name);
             return this.$route.name.split("-")[0];
         },
     },
