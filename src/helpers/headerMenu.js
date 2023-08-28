@@ -73,7 +73,7 @@ export default [
                 iconColor: '#3b5998',
             },
             {
-                alias: 'Sprawozdańia',
+                alias: 'Sprawozdania',
                 link: 'https://sprawozdaniaopp.niw.gov.pl/',
                 iconFile: 'NIW.png',
             },

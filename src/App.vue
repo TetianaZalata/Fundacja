@@ -22,7 +22,7 @@ export default {
         TheFooter,
     },
     created() {
-        document.title = "Fundacja edukacja";
+        document.title = "FWiRE";
         this.getUser();
     },
     data() {
