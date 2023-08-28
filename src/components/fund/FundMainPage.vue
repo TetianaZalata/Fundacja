@@ -11,7 +11,7 @@
                 <img class="logo" :src="fundacjaLogoHref" alt="Fundacja logo">
                 <p>
                     Przekaż nam 1,5 % swojego podatku
-                    ORGANIZACJA POŻYTKU PUBpCZNEGO
+                    ORGANIZACJA POŻYTKU PUBLICZNEGO
                     KRS 0000491138
                     Santander Bank Polska S.A. Odział w Gnieźnie
                     94 1090 1375 0000 0001 2266 2138
@@ -25,7 +25,7 @@
                     <div class="logo-container"><img class="logo" :src="przedszkoleLogoHref" alt="Przedszkole logo"></div>
                 </div>
                 <div class="description">
-                    <p>- prowadzimy żłobek, przedszkole szkołę podstawową oraz pceum ogólnokształcące</p>
+                    <p>- prowadzimy żłobek, przedszkole, szkołę podstawową oraz liceum ogólnokształcące</p>
                     <p>- wspieramy wszelkie inicjatywy edukacyjne i kulturalne</p>
                     <p>- organizujemy kolonie i półkolonie</p>
                     <p>- i wiele innych…</p>
