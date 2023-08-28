@@ -22,6 +22,7 @@ export default {
         TheFooter,
     },
     created() {
+        document.title = "Fundacja edukacja";
         this.getUser();
     },
     data() {
