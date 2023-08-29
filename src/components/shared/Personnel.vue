@@ -296,6 +296,11 @@ export default {
             margin-bottom: 10px;
             font-family: "Source Sans Pro", sans-serif !important;
             text-transform: uppercase;
+
+            @media screen and (max-width: 600px) {
+              font-size: 32px !important;
+              text-align: center;
+            }
         }
 
         &-item {

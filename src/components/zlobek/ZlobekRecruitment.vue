@@ -114,6 +114,7 @@ export default {
           height: 100%;
 
           .text-value {
+            padding: 12px;
             width: 100%;
             text-align: start;
           }

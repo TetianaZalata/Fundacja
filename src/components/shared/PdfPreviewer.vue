@@ -137,7 +137,12 @@
           </div>
         </div>
         <div class="pdf-file-download">
-            <svg-icon class="mr-5 red--text" type="mdi" :path="mdiFilePdfBox" :style="{width: '34px', height: '34px'}"></svg-icon>
+            <svg-icon
+              v-if="document"
+              class="mr-5 red--text"
+              type="mdi"
+              :path="mdiFilePdfBox"
+              :style="{width: '34px', height: '34px'}" />
             <a :href="document" target="_blank">
               {{ fileName }}
             </a>

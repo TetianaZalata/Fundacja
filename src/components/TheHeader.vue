@@ -16,9 +16,7 @@
                                 'selected-item': currentRouteName === item.item,
                             }"
                         >
-                            <router-link :to="{ name: item.route }">
-                                {{ item.alias }}
-                            </router-link>
+                            {{ item.alias }}
                         </v-btn>
                     </template>
                     <v-list v-if="!!item.subitems">
