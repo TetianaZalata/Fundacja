@@ -1,6 +1,6 @@
 <template>
     <section class="pdf-container">
-        <v-row
+        <div
           v-if="isAuth"
           class="pdf-admin-pannel"
         >
@@ -38,7 +38,7 @@
                   @change="uploadFile"
               >
           </v-col>
-      </v-row>
+      </div>
         <div class="pdf-view">
           <div
               v-if="pages"
@@ -284,7 +284,7 @@
                         fileData: this.base64String,
                         fileName: this.fileName,
                     }).then(() => {
-                      console.log('File data saved to Realtime Database!');
+                      console.log('File data saved to database!');
                     }).catch((error) => {
                       console.error(error);
                     });
@@ -297,7 +297,7 @@
                     const fileNodeRef = ref(db, this.documentType);
                 
                     remove(fileNodeRef).then(() => {
-                      console.log('File data removed from Realtime Database!');
+                      console.log('File data removed from database!');
                     })
                     .then(() => {
                       this.document = '';
@@ -371,6 +371,7 @@
         }
 
         @media screen and (max-width: 600px) {
+          height: 50%;
           align-items: center;
           
           .pdf-view {
