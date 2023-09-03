@@ -12,6 +12,7 @@
                             tile
                             v-bind="attrs"
                             v-on="on"
+                            @click="noSubmenuItemClick(item)"
                             :class="{
                                 'selected-item': currentRouteName === item.item,
                             }"
@@ -84,7 +85,7 @@
 </template>
 
 <script>
-import { LOGIN } from "@/router/routeNames";
+import { LOGIN, KOLO_WOLONTARIATU } from "@/router/routeNames";
 import items from "@/helpers/headerMenu";
 import { mapGetters, mapActions } from "vuex";
 import SvgIcon from "@jamescoyle/vue-icon";
@@ -117,7 +118,12 @@ export default {
         },
         logIn() {
           this.$router.push({ name: LOGIN });
-        }
+        },
+        noSubmenuItemClick(item) {
+            if(!item.subitems) {
+                this.$router.push({ name: KOLO_WOLONTARIATU })
+            }
+        },
     },
 };
 </script>
