@@ -89,6 +89,8 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
+    bottom: 24px !important;
+
     .space {
         display: inline-block;
         width: 33px;
