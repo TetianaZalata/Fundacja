@@ -68,7 +68,7 @@ export default [
             },
             {
                 alias: 'Wypoczynek dzieci i młodzieży',
-                link: 'https://www.facebook.com',
+                link: 'https://www.facebook.com/profile.php?id=100094458856250',
                 icon: mdiFacebook,
                 iconColor: '#3b5998',
             },
