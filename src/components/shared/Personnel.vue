@@ -289,7 +289,7 @@ export default {
         margin-bottom: 15px;
 
         &-title {
-            font-size: 44px !important;
+            font-size: 34px !important;
             font-weight: 900;
             text-align: start;
             line-height: 44px;
@@ -298,7 +298,7 @@ export default {
             text-transform: uppercase;
 
             @media screen and (max-width: 600px) {
-              font-size: 32px !important;
+              font-size: 28px !important;
               text-align: center;
             }
         }
