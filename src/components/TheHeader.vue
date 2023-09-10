@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar app color="grey lighten-2" dense>
+    <v-app-bar app color="header grey lighten-2" dense>
         <v-slide-group>
             <v-slide-item
                 v-for="(item, index) in items"
@@ -79,8 +79,14 @@
             </v-slide-item>
         </v-slide-group>
         <v-spacer />
-        <v-btn tile v-if="!isAuth" @click="logIn">Login</v-btn>
-        <v-btn tile v-if="isAuth" @click="logOut">Logout</v-btn>
+        <v-btn class="login-btn" tile v-if="!isAuth" @click="logIn">
+          <span class="desktop">Login</span>
+          <svg-icon class="mobile" type="mdi" :path="mdiLogin" :style="{width: '20px', height: '20px'}" />          
+        </v-btn>
+        <v-btn class="login-btn" tile v-if="isAuth" @click="logOut">
+          <span class="desktop">Logout</span>
+          <svg-icon class="mobile" type="mdi" :path="mdiLogout" :style="{width: '20px', height: '20px'}" />
+        </v-btn>
 </v-app-bar>
 </template>
 
@@ -89,6 +95,7 @@ import { LOGIN, KOLO_WOLONTARIATU } from "@/router/routeNames";
 import items from "@/helpers/headerMenu";
 import { mapGetters, mapActions } from "vuex";
 import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiLogin, mdiLogout } from "@mdi/js";
 
 export default {
     name: "TheHeader",
@@ -101,6 +108,8 @@ export default {
             userMenu: ["Profile", "Access management", "Logout"],
             tab: "",
             items,
+            mdiLogin,
+            mdiLogout
         };
     },
     computed: {
@@ -129,38 +138,64 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-logo {
-    max-height: 54px;
-}
+  .main-logo {
+      max-height: 54px;
+  }
 
-.selected-item {
-    background-color: #cfd8dc;
-}
+  .selected-item {
+      background-color: #cfd8dc;
+  }
 
-.router-item {
-    width: 100%;
-    height: 100%;
-    text-align: start;
-    color: black !important;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  .router-item {
+      width: 100%;
+      height: 100%;
+      text-align: start;
+      color: black !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
 
-    span {
-        margin-left: 10px;
+      span {
+          margin-left: 10px;
+      }
+  }
+
+  a {
+      color: black !important;
+      text-decoration: none;
+  }
+
+  .header {
+    .mobile {
+      display: none;
     }
-}
 
-a {
-    color: black !important;
-    text-decoration: none;
-}
+    @media screen and (max-width: 414px) {
+      .login-btn {
+        min-width: 20px;
+        padding: 0 8px;
+      }
+      .mobile {
+        display: block;
+      }
+      .desktop {
+        display: none;
+      }
+
+    }
+  }
 </style>
 
 <style>
+  
   @media screen and (max-width: 840px) {
-    .v-toolbar__content {
-        padding-right: 90px;
-    }
-}
+      .v-toolbar__content {
+          padding-right: 90px;
+      }
+  }
+  @media screen and (max-width: 414px) {
+      .v-toolbar__content {
+          padding-right: 45px;
+      }
+  }
 </style>
