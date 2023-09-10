@@ -92,7 +92,7 @@ export default [
         subitems: [
             {
                 alias: 'E-Dziennik ',
-                link: 'https://uonetplus.vulcan.net.pl/powiatgnieznienski',
+                link: 'https://uonetplus.vulcan.net.pl/gminagniezno',
                 iconFile: 'E_Dziennik.png',
             },
             {
@@ -144,7 +144,7 @@ export default [
         subitems: [
             {
                 alias: 'E-Dziennik ',
-                link: 'https://uonetplus.vulcan.net.pl/gminagniezno',
+                link: 'https://uonetplus.vulcan.net.pl/powiatgnieznienski',
                 iconFile: 'E_Dziennik.png',
             },
             {
