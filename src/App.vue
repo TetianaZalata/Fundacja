@@ -8,7 +8,7 @@
         </v-main>
         <TheFooter />
         <div class="caption grey lighten-2">
-            © Fundacja Wspierania i Rozwoju Edukacji.
+            © Fundacja Wspierania i Rozwoju Edukacji
         </div>
     </v-app>
 </template>
